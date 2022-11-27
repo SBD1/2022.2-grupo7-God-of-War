@@ -5,10 +5,13 @@
 | Versão | Data  | Autor             | Descrição                                                        |
 | ------ | ----- | ----------------- | ---------------------------------------------------------------- |
 | 1.0    | 26/11 | Mateus Caltabiano | Confecção da primeira versão do Diagrama Entidade-Relacionamento |
+| 1.1    | 27/11 | Mateus Caltabiano | Adição da introdução                                             |
 
 ## 2. Introdução
 
-
+<p>
+    &emsp; O Diagrama Entidade-Relacionamento (DER) é a representação gráfica do Modelo Entidade-Relacionamento (MER). Sua elaboração facilita o bom entendimento do MER para auxiliar no desenvolvimento do software.
+</p>
 
 ## 3. Diagrama
 
@@ -16,7 +19,7 @@
 Imagem 1: DER
 </div>
 
-<img class="card-img img-fluid rounded" width="800" height="400" src="">
+<img class="card-img img-fluid rounded" width="800" height="400" src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER.png?raw=true">
 
 <div style="text-align: center">
 Fonte: Autoria própria
