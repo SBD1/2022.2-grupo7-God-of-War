@@ -6,12 +6,12 @@
 | ------ | ----- | ----------------- | ---------------------------------------------------------------- |
 | 1.0    | 26/11 | Mateus Caltabiano | Confecção da primeira versão do Diagrama Entidade-Relacionamento |
 | 1.1    | 27/11 | Mateus Caltabiano | Adição da introdução                                             |
-| 1.3    | 27/11 | Mateus Caltabiano | Adição dos atributos no diagrama e reorganização do mesmo        |
+| 1.2    | 27/11 | Mateus Caltabiano | Adição dos atributos no diagrama e reorganização do mesmo        |
 
 ## 2. Introdução
 
 <p>
-    &emsp; O Diagrama Entidade-Relacionamento (DER) é a representação gráfica do Modelo Entidade-Relacionamento (MER). Sua elaboração facilita o bom entendimento do MER para auxiliar no desenvolvimento do software.
+    &emsp; O Diagrama Entidade-Relacionamento (DER) é a representação gráfica do Modelo Entidade-Relacionamento (MER). Sua elaboração facilita o bom entendimento do MER para auxiliar no desenvolvimento do software.  
 </p>
 
 ## 3. Diagrama
