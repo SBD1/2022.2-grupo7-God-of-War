@@ -20,7 +20,7 @@
 Imagem 1: DER
 </div>
 
-<img class="card-img img-fluid rounded" width="1200" height="600" src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V2.png?raw=true">
+<img class="card-img img-fluid rounded" width="2088" height="1719" src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V2.png?raw=true">
 
 <div style="text-align: center">
 Fonte: Autoria própria
