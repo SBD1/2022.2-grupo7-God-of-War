@@ -6,6 +6,7 @@
 | ------ | ----- | ----------------- | ---------------------------------------------------------------- |
 | 1.0    | 26/11 | Mateus Caltabiano | Confecção da primeira versão do Diagrama Entidade-Relacionamento |
 | 1.1    | 27/11 | Mateus Caltabiano | Adição da introdução                                             |
+| 1.3    | 27/11 | Mateus Caltabiano | Adição dos atributos no diagrama e reorganização do mesmo        |
 
 ## 2. Introdução
 
@@ -19,10 +20,8 @@
 Imagem 1: DER
 </div>
 
-<img class="card-img img-fluid rounded" width="800" height="400" src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER.png?raw=true">
+<img class="card-img img-fluid rounded" width="800" height="400" src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V2.png?raw=true">
 
 <div style="text-align: center">
 Fonte: Autoria própria
 </div>
-
-## 4. Referências Bibliográficas
