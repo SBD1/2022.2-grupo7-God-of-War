@@ -119,6 +119,7 @@
 | defesa   | int  | 1 - 300       | Pontos de poder de defesa do inimigo |
 | ataque   | int  | 0 - 99       | Ataques do inimigo                   |
 | vida     | int  | 10 - 10000     | Quantidade de vida do Inimigo |
+| vidaAtual     | int  | 10 - 10000     | Quantidade de vida do Inimigo |
 
 ### Entidade: Personagem 
 #### Descrição: Tipo de NPC neutro em relação ao jogador. 
@@ -179,4 +180,4 @@
 | descricao | varchar | 512      | Descrição da missão     |
 | objetivo  | varchar | 512      | Objetivo da missão      |
 | recompensa          |  varchar       |     512    |               Recompensa a ser ganha quando a missão for completa          |
-|iniciador| int| 0 - 40| Identificador do NPC que vai entregar a missão ao jogador| 
+| iniciador| int| 0 - 40| Identificador do NPC que vai entregar a missão ao jogador| 
