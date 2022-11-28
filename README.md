@@ -4,7 +4,7 @@
 
 | Membros | Matrícula | Git | 
 | -------- | -------- | -------- | 
-| Pedro Henrique Nogueira| 190094486     |  [Pedro](https://github.com/phnog)     |
+| Pedro Henrique Nogueira Gonçalves| 190094486     |  [Pedro](https://github.com/phnog)     |
 | Felipe Alef | | | 
 | Mateus Caltabiano| 190093196 | [Mateus Caltabiano](https://github.com/MateusCaltabiano) | 
 | Guilherme Keyti Kishimoto | | | 
