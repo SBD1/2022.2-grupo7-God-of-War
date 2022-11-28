@@ -7,4 +7,4 @@
 | Pedro Henrique Nogueira| 190094486     |  [Pedro](https://github.com/phnog)     |
 | Felipe Alef | 190042532 | [Felipe Alef](https://github.com/Alef012) | 
 | Mateus Caltabiano| 190093196 | [Mateus Caltabiano](https://github.com/MateusCaltabiano) | 
-| Guilherme Keyti Kishimoto | | | 
+| Guilherme Kishimoto | 190088257 | [Guilherme Kishimoto](https://github.com/guilhermekishimoto) |  
