@@ -158,7 +158,7 @@
 | idBau    | int  | 0 - 25       | Identificador do báu                     |
 | pos      | int  | 0 - 50       | Local onde o báu esta no mapa            |
 | raridade | int  | 0 - 3       | Qualidade da recompensa                  |
-| Valores Possiveis  | int  | 1 - 3     | Quantidade de recompensas que tem no báu |
+| tamanho  | int  | 1 - 3     | Quantidade de recompensas que tem no báu |
 
 
 ### Entidade: Inventario 
