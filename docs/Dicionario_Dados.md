@@ -151,15 +151,15 @@
 | descricao | varchar | 512      | Descrição do local     |
 | nome      | varchar | 512      | Nome do local          |
 
-### Entidade: Báu 
+### Entidade: Baú 
 #### Descrição: Caixa que contem uma recompensa para o jogador.
 
 | Atributo | Tipo | Valores Possiveis | Descrição                                |
 | -------- | ---- | ------- | ---------------------------------------- |
-| idBau    | int  | 0 - 25       | Identificador do báu                     |
+| idBau    | int  | 0 - 25       | Identificador do Baú                     |
 | pos      | int  | 0 - 50       | Local onde o báu esta no mapa            |
 | raridade | int  | 0 - 3       | Qualidade da recompensa                  |
-| tamanho  | int  | 1 - 3     | Quantidade de recompensas que tem no báu |
+| tamanho  | int  | 1 - 3     | Quantidade de recompensas que tem no Baú |
 
 
 ### Entidade: Inventario 
