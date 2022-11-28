@@ -33,7 +33,7 @@
 | defesa       | int  | 10 - 100       | Valor do poder de defesa bonus  que o jogador vai receber |
 
 
-### Entidade: Ataques 
+### Entidade: Ataque 
 #### Descrição: Lista de movimentos que o jogador pode performar. 
 
 
@@ -46,7 +46,7 @@
 | desc              |  varchar       |   64      |  Descrição do ataque   |
 
 
-### Entidade: Itens 
+### Entidade: Item 
 #### Descrição: Utensílios para auxiliar o jogador. 
 
 
@@ -57,7 +57,7 @@
 | peso     | int     | 1 - 100      | Peso de cada item     |
 | valor    | int     | 1 - 9999       | Valor do item         |
 
-### Entidade: Equipamentos 
+### Entidade: Equipamento 
 #### Descrição: Itens que podem ser equipado pelo jogar. 
 
 
