@@ -27,8 +27,8 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
 
 ## 2. Atributos
 - **Jogador**: <ins>ID_Jogador</ins>, nome, vida_máxima, vida_atual, experiência, força, defesa, posição;
-- **Nivel**: <ins>ID_Nivel<ins>, xp_necessário, força, defesa;
-- **Ataques**: <ins>ID_Ataques<ins>, nome, multiplicador, qnt_de_alvos;
+- **Nivel**: <ins>ID_Nivel</ins>, xp_necessário, força, defesa;
+- **Ataques**: <ins>ID_Ataques</ins>, nome, multiplicador, qnt_de_alvos;
 - **NPC**: <ins>ID_NPC</ins>, Nome, tipo, descriçãõ, diálogo, pos;
     - **Mercador**: Itens,Multiplicador_de_valor;
     - **Inimigo**: Vida_máxima, Dano, Vida_atual, Ataque, Defesa;
@@ -41,7 +41,7 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
         - **Armadura**: Tipo, defesa, vida;
         - **Arma**: Dano;
     - **Poção**: Vida_recuperada
-- **Baú**: <ins>ID_Baú, Posição, Tamanho, Raridade
+- **Baú**: <ins>ID_Baú</ins>, Posição, Tamanho, Raridade
 - **Missão**: <ins>ID_Missão</ins>, Objetivo,Descrição, Recompensa;
 
 ## 3. Relacionamentos
