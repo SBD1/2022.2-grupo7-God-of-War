@@ -41,7 +41,7 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
         - **Armadura**: Tipo, defesa, vida;
         - **Arma**: Dano;
     - **Poção**: Vida_recuperada
-- **Baú**:<ins>ID_Baú, Posição, Tamanho, Raridade
+- **Baú**: <ins>ID_Baú, Posição, Tamanho, Raridade
 - **Missão**: <ins>ID_Missão</ins>, Objetivo,Descrição, Recompensa;
 
 ## 3. Relacionamentos
