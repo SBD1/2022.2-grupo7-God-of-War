@@ -14,7 +14,7 @@
 | Atributo  | Tipo    | Valores Possiveis | Descrição                              |
 | --------- | ------- | ------- | -------------------------------------- |
 | idJogador | int     | 0 - 99       | Identificador do jogador               |
-| nome      | varchar | 64      | Nome do personagem                     |
+| nome      | varchar | 512      | Nome do personagem                     |
 | vidaAtual | int     | 0 - 10000       | Pontos de vida atual do jogador        |
 | vidaTotal | int     | 1 - 10000      | Pontos de vida total do jogador        |
 | exp       | int     | 0 - 10000       | Pontos de experiencia atual do jogador |
@@ -40,10 +40,10 @@
 | Atributo      | Tipo    | Valores Possiveis | Descrição                                           |
 | ------------- | ------- | ------- | --------------------------------------------------- |
 | idAtaque      | int     | 0 - 99       | Identificador do movimento de ataque                |
-| nome          | varchar | 64      | Nome do ataque                                      |
+| nome          | varchar | 512      | Nome do ataque                                      |
 | multiplicador | int     | 1 - 10       | Valor para multiplicar o poder de ataque do jogador |
 | qntAlvos      | int     | 1 - 5       | Quantidade de alvos que o ataque pode acertar       |
-| desc              |  varchar       |   64      |  Descrição do ataque   |
+| desc              |  varchar       |   512      |  Descrição do ataque   |
 
 
 ### Entidade: Item 
@@ -53,7 +53,7 @@
 | Atributo | Tipo    | Valores Possiveis | Descrição             |
 | -------- | ------- | ------- | --------------------- |
 | idItem   | int     | 0 - 99      | Identificador do item |
-| nome     | varchar | 64      | Nome do item          |
+| nome     | varchar | 512      | Nome do item          |
 | peso     | int     | 1 - 100      | Peso de cada item     |
 | valor    | int     | 1 - 9999       | Valor do item         |
 
@@ -71,7 +71,7 @@
 
 | Atributo | Tipo    | Valores Possiveis | Descrição                                  |
 | -------- | ------- | ------- | ------------------------------------------ |
-| tipo     | varchar | 64      | Tipo da armadura (Peitoral ou Cinto)       |
+| tipo     | varchar | 512      | Tipo da armadura (Peitoral ou Cinto)       |
 | defesa   | int     | 1 - 200       | Quantidade de pontos de defesa da armadura |
 | vida     | int     | 0 - 1000       | Quantidade de pontos de vida da armadura   |
 
@@ -102,11 +102,11 @@
 | Atributo  | Tipo    | Valores Possiveis | Descrição              |
 | --------- | ------- | ------- | ---------------------- |
 | idNPC     | int     | 0 - 40      | Identificador do NPC   |
-| nome      | varchar | 64      | Nome do NPC            |
-| tipo      | varchar | 64      | Tipo de NPC (Inimigo, Personagem, Mercador ou Ferreiro)          |
-| descricao | varchar | 64      | Descrição sobre o NPC  |
+| nome      | varchar | 512      | Nome do NPC            |
+| tipo      | varchar | 512      | Tipo de NPC (Inimigo, Personagem, Mercador ou Ferreiro)          |
+| descricao | varchar | 512      | Descrição sobre o NPC  |
 | pos       | int     | 1 - 50       | Posição do NPC no mapa |
-| dialogo   | varchar | 64      | Dialogo do NPC         |
+| dialogo   | varchar | 512      | Dialogo do NPC         |
 
 
 ### Entidade: Inimigo 
@@ -147,8 +147,8 @@
 | Atributo  | Tipo    | Valores Possiveis | Descrição              |
 | --------- | ------- | ------- | ---------------------- |
 | idLocal   | int     | 0 - 50      | Identificador do local |
-| descricao | varchar | 64      | Descrição do local     |
-| nome      | varchar | 64      | Nome do local          |
+| descricao | varchar | 512      | Descrição do local     |
+| nome      | varchar | 512      | Nome do local          |
 
 ### Entidade: Báu 
 #### Descrição: Caixa que contem uma recompensa para o jogador.
@@ -176,7 +176,7 @@
 | Atributo  | Tipo    | Valores Possiveis | Descrição               |
 | --------- | ------- | ------- | ----------------------- |
 | idMissao  | int     | 0 - 10       | Identificador da missão |
-| descricao | varchar | 64      | Descrição da missão     |
-| objetivo  | varchar | 64      | Objetivo da missão      |
-| recompensa          |  varchar       |     64    |               Recompensa a ser ganha quando a missão for completa          |
+| descricao | varchar | 512      | Descrição da missão     |
+| objetivo  | varchar | 512      | Objetivo da missão      |
+| recompensa          |  varchar       |     512    |               Recompensa a ser ganha quando a missão for completa          |
 |iniciador| int| 0 - 40| Identificador do NPC que vai entregar a missão ao jogador| 
