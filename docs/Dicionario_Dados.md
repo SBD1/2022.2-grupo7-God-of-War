@@ -168,7 +168,7 @@
 
 | Atributo   | Tipo | Valores Possiveis | Descrição                                                 |
 | ---------- | ---- | ------- | --------------------------------------------------------- |
-| capacidadeAtual | int  | 0 - 200       | Quantidade de peso que o jogador esta carregando            |
+| carga      | int  | 0 - 200       | Quantidade de peso que o jogador esta carregando            |
 | capacidade | int  | 0 - 200       | Quantidade de peso que o jogador pode carregar            |
 | hacksilver | int  | 0 - 9999       | Dinheiro do jogo, utilizado para comprar e melhorar itens |
 
