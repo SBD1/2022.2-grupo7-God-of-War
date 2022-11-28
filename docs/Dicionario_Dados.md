@@ -15,8 +15,8 @@
 | --------- | ------- | ------- | -------------------------------------- |
 | idJogador | int     | 0 - 99       | Identificador do jogador               |
 | nome      | varchar | 64      | Nome do personagem                     |
-| vidaatual | int     | 0 - 10000       | Pontos de vida atual do jogador        |
-| vidatotal | int     | 1 - 10000      | Pontos de vida total do jogador        |
+| vidaAtual | int     | 0 - 10000       | Pontos de vida atual do jogador        |
+| vidaTotal | int     | 1 - 10000      | Pontos de vida total do jogador        |
 | exp       | int     | 0 - 10000       | Pontos de experiencia atual do jogador |
 | forca      | int     | 1 - 300       | Valor do poder de ataque do jogador    |
 | defesa    | int     | 1 - 300      | Valor do poder de defesa do jogador    |
