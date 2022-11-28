@@ -82,6 +82,7 @@
 | Atributo | Tipo    | Valores Possiveis | Descrição                                  |
 | -------- | ------- | ------- | ------------------------------------------ |
 | dano     | int | 1 - 200      | Pontos de ataque da arma       |
+| tipo     | varchar | 512      | Tipo da arma  (Cajado ,  Espada Longa, Adaga, Arco Flecha, Martelo e Especiais)    |
 
 ### Entidade: Poção 
 #### Descrição: Itens consumiveis pelo jogador. 
