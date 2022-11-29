@@ -8,3 +8,5 @@
 | Felipe Alef | 190042532 | [Felipe Alef](https://github.com/Alef012) | 
 | Mateus Caltabiano| 190093196 | [Mateus Caltabiano](https://github.com/MateusCaltabiano) | 
 | Guilherme Kishimoto | 190088257 | [Guilherme Kishimoto](https://github.com/guilhermekishimoto) |  
+
+[Entregas](https://github.com/Requisitos-de-Software/2022.1-TikTok/blob/main/docs/apresentacoes/apresentacao.md)
