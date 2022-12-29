@@ -127,3 +127,21 @@ create table nivel (
 	forca int,
 	defesa int
 )
+
+-- Jogador 
+
+create table jogador(
+
+	id serial constraint pk_id_jogador primary key, 
+	nome varchar(64),
+	vidaAtual int, 
+	vidaTotal int, 
+	experiencia int, 
+	forca int, 
+	defesa int, 
+	id_local int, 
+	id_nivel int, 
+	constraint fk_id_local foreign key (id_local) references localTab (id),
+	constraint fk_id_nivel foreign key (id_nivel) references nivel (id)
+
+);
