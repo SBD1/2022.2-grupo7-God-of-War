@@ -112,3 +112,11 @@ create table missao(
 	idNPC int
 );
 
+-- bau
+
+create table bau(
+	id serial constraint pk_idBau primary key,
+	pos int,
+	raridade int,
+	tamanho int
+);
