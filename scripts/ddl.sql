@@ -1,3 +1,6 @@
+create type tipo_armadura as enum ('peitoral','cinto');
+
+
 create table localTab(
 	id serial constraint pk_idLocal primary key,
 	descricao varchar(512),
