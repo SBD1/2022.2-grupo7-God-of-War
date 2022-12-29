@@ -29,3 +29,8 @@ create table mercador(
 	multiVenda int,
 	itens int
 ) inherits(npc);
+
+create table ferreiro(
+	melhorias int,
+	multiValor int
+) inherits (npc);
