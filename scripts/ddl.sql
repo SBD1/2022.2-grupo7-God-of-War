@@ -37,6 +37,15 @@ create table tipoArma(
 	nome tipo_arma
 );
 
+-- Arma 
+
+create table arma(
+	dano int,
+	id_tipoarma int,
+	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
+)inherits(item);
+
+
 create table localTab(
 	id serial constraint pk_idLocal primary key,
 	descricao varchar(512),
