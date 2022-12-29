@@ -13,3 +13,11 @@ create table npc(
 	dialogo varchar(512),
 	constraint fk_idLocal foreign key (pos) references localTab(id)
 );
+
+create table inimigo(
+	dano int,
+	defesa int,
+	ataque int,
+	vida int,
+	vidaAtual int
+) inherits(npc);
