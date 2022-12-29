@@ -171,6 +171,3 @@ create table bau(
 	constraint fk_id_item foreign key (id_item) references item (id),
 	constraint fk_id_local foreign key (id_local) references localTab(id)
 );
-
-
-
