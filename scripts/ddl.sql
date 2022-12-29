@@ -1,5 +1,4 @@
-create type tipo_armadura as enum ('peitoral','cinto');
-create type tipo_arma as enum ('cajado','espada','adaga','arcoflecha','martelo','especial');
+
 
 -- Item
 
@@ -57,76 +56,23 @@ create table ataque(
 	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
 );
 
+-- Local
+
 create table localTab(
 	id serial constraint pk_idLocal primary key,
 	descricao varchar(512),
 	nome varchar(512)
 );
 
-create table npc(
-	idNPC serial constraint pk_idNPC primary key,
-	nome varchar(512),
-	tipo varchar(512),
-	descricao varchar(512),
-	pos int,
-	dialogo varchar(512),
-	constraint fk_idLocal foreign key (pos) references localTab(id)
-);
-
-create table inimigo(
-	dano int,
-	defesa int,
-	ataque int,
-	vida int,
-	vidaAtual int
-) inherits(npc);
-
-create table personagem(
-) inherits(npc);
-
-create table mercador(
-	multiVenda int,
-	itens int
-) inherits(npc);
-
-create table ferreiro(
-	melhorias int,
-	multiValor int
-) inherits (npc);
-
---inventario
-
-create table inventario(
-	carga int,
-	capacidade int,
-	hacksilver int
-);
-
---missao
-
-create table missao(
-	id serial constraint pk_idMissao primary key,
-	descricao varchar(512),
-	objetivo varchar(512),
-	recompensa varchar(512),
-	idNPC int
-);
-
--- bau
-
-create table bau(
-	id serial constraint pk_idBau primary key,
-	pos int,
-	raridade int,
-	tamanho int
-);
+-- Nivel
 
 create table nivel (
 	id serial constraint pk_id_nivel primary key,
 	xpNecessario int,
 	forca int,
 	defesa int
-)
+);
+
 
 -- Jogador 
 
@@ -145,3 +91,85 @@ create table jogador(
 	constraint fk_id_nivel foreign key (id_nivel) references nivel (id)
 
 );
+
+
+-- NPC
+
+create table npc(
+	idNPC serial constraint pk_idNPC primary key,
+	nome varchar(512),
+	tipo varchar(512),
+	descricao varchar(512),
+	pos int,
+	dialogo varchar(512),
+	constraint fk_idLocal foreign key (pos) references localTab(id)
+);
+
+-- Inimigo
+
+create table inimigo(
+	dano int,
+	defesa int,
+	ataque int,
+	vida int,
+	vidaAtual int
+) inherits(npc);
+
+-- Personagem
+
+create table personagem(
+) inherits(npc);
+
+-- Mercador
+
+create table mercador(
+	multiVenda int,
+	itens int
+) inherits(npc);
+
+-- Ferreiro
+
+create table ferreiro(
+	melhorias int,
+	multiValor int
+) inherits (npc);
+
+-- Inventario
+
+create table inventario(
+
+    id_jogador int, 
+	carga int,
+	capacidade int,
+	hacksilver int,
+	id_item int, 
+	constraint fk_id_jogador foreign key (id_jogador) references jogador(id), 
+	constraint fk_id_item foreign key (id_item) references item (id)
+);
+
+-- Missao
+
+create table missao(
+	id serial constraint pk_idMissao primary key,
+	descricao varchar(512),
+	objetivo varchar(512),
+	id_item int,
+	idNPC int,
+	constraint fk_id_npc foreign key (idNPC) references npc(idNPC),
+	constraint fk_id_item foreign key (id_item) references item(id)
+);
+
+-- Bau
+
+create table bau(
+	id serial constraint pk_idBau primary key,
+	id_local int,
+	raridade int,
+	tamanho int, 
+	id_item int,
+	constraint fk_id_item foreign key (id_item) references item (id),
+	constraint fk_id_local foreign key (id_local) references localTab(id)
+);
+
+
+
