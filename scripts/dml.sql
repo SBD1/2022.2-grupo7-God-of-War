@@ -1,3 +1,11 @@
+-- Carga da tabela tipoarma
+
+insert into tipoarma (nome) values 
+('cajado'),('espada'),('adaga'),('arcoflecha'),('martelo'),('especial');
+
+
+
+
 insert into nivel (xpnecessario, forca, defesa)
 	values (10, 10, 10), (20, 20, 20), (30, 30, 30), (40, 40, 40), (50, 50, 50), (60, 60, 60), 
 		   (70, 70, 70), (80, 80, 80), (90, 90, 90);
@@ -11,3 +19,4 @@ insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_
 
 insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, vida, vidaatual)
 	values ('Draugr', 1, 'descricao do inimigo', 2, 'ROAR!', 2, 1, 1, 5, 5);
+
