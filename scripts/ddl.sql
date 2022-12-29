@@ -30,6 +30,13 @@ create table armadura(
 	vida int
 )inherits(item); 
 
+-- Tipo Arma 
+
+create table tipoArma(
+	id serial constraint pk_id_tipoarma primary key, 
+	nome tipo_arma
+);
+
 create table localTab(
 	id serial constraint pk_idLocal primary key,
 	descricao varchar(512),
