@@ -120,3 +120,10 @@ create table bau(
 	raridade int,
 	tamanho int
 );
+
+create table nivel (
+	id serial constraint pk_id_nivel primary key,
+	xpNecessario int,
+	forca int,
+	defesa int
+)
