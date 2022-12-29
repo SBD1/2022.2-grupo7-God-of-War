@@ -93,3 +93,9 @@ create table ferreiro(
 	melhorias int,
 	multiValor int
 ) inherits (npc);
+
+create table inventario(
+	carga int,
+	capacidade int,
+	hacksilver int
+);
