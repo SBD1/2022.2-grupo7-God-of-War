@@ -22,8 +22,13 @@ create table pocao(
 	vidaRegen int
 )inherits(item);  
 
+-- Armadura
 
-
+create table armadura(
+	tipo tipo_armadura,
+	defesa int, 
+	vida int
+)inherits(item); 
 
 create table localTab(
 	id serial constraint pk_idLocal primary key,
