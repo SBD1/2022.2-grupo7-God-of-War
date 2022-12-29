@@ -55,7 +55,7 @@ create table ataque(
 	descricao varchar(500), 
 	id_tipoarma int,
 	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
-)
+);
 
 create table localTab(
 	id serial constraint pk_idLocal primary key,
