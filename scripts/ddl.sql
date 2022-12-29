@@ -99,7 +99,7 @@ create table jogador(
 create table npc(
 	idNPC serial constraint pk_idNPC primary key,
 	nome varchar(512),
-	tipo varchar(512),
+	tipo int,
 	descricao varchar(512),
 	pos int,
 	dialogo varchar(512),
