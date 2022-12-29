@@ -94,8 +94,21 @@ create table ferreiro(
 	multiValor int
 ) inherits (npc);
 
+--inventario
+
 create table inventario(
 	carga int,
 	capacidade int,
 	hacksilver int
 );
+
+--missao
+
+create table missao(
+	id serial constraint pk_idMissao primary key,
+	descricao varchar(512),
+	objetivo varchar(512),
+	recompensa varchar(512),
+	idNPC int
+);
+
