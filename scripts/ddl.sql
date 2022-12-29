@@ -1,6 +1,17 @@
 create type tipo_armadura as enum ('peitoral','cinto');
 create type tipo_arma as enum ('cajado','espada','adaga','arcoflecha','martelo','especial');
 
+-- Item
+
+create table item(
+	id serial constraint pk_id_item primary key, 
+	nome varchar(64),
+	peso float, 
+	valor float
+);
+
+
+
 create table localTab(
 	id serial constraint pk_idLocal primary key,
 	descricao varchar(512),
