@@ -10,6 +10,13 @@ create table item(
 	valor float
 );
 
+-- Equipamento 
+
+create table equipamento(
+	nivel int
+)inherits(item);  
+
+
 
 
 create table localTab(
