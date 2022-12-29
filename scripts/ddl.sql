@@ -24,3 +24,8 @@ create table inimigo(
 
 create table personagem(
 ) inherits(npc);
+
+create table mercador(
+	multiVenda int,
+	itens int
+) inherits(npc);
