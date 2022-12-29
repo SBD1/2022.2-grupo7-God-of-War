@@ -28,7 +28,7 @@ create table armadura(
 	tipo tipo_armadura,
 	defesa int, 
 	vida int
-)inherits(item); 
+)inherits(equipamento); 
 
 -- Tipo Arma 
 
@@ -43,7 +43,7 @@ create table arma(
 	dano int,
 	id_tipoarma int,
 	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
-)inherits(item);
+)inherits(equipamento);
 
 -- Ataque 
 
