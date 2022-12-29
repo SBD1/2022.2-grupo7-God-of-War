@@ -14,6 +14,12 @@ create table item(
 
 create table equipamento(
 	nivel int
+)inherits(item); 
+
+-- Poção 
+
+create table pocao(
+	vidaRegen int
 )inherits(item);  
 
 
