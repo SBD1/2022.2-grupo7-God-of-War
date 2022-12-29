@@ -45,6 +45,17 @@ create table arma(
 	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
 )inherits(item);
 
+-- Ataque 
+
+create table ataque(
+	id serial constraint pk_id_ataque primary key, 
+	nome varchar(64), 
+	multiplicador smallint, 
+	qntAlvos smallint, 
+	descricao varchar(500), 
+	id_tipoarma int,
+	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
+)
 
 create table localTab(
 	id serial constraint pk_idLocal primary key,
