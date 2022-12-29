@@ -21,3 +21,6 @@ create table inimigo(
 	vida int,
 	vidaAtual int
 ) inherits(npc);
+
+create table personagem(
+) inherits(npc);
