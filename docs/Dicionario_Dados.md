@@ -27,10 +27,10 @@
 
 | Atributo     | Tipo | Valores Possiveis | Descrição                                                 |
 | ------------ | ---- | ------- | --------------------------------------------------------- |
-| idNivel | int  | 0-9       | Identificador do nivel       |
-| xpNecessario | int  | 100 - 10000       | Quantidade de experiência para evoluir o personagem       |
-| forca        | int  | 10 - 100       | Valor do poder de ataque bonus que o jogador vai receber  |
-| defesa       | int  | 10 - 100       | Valor do poder de defesa bonus  que o jogador vai receber |
+| idNivel | int  | 1-10       | Identificador do nivel       |
+| xpNecessario | int  | 10 - 90       | Quantidade de experiência para evoluir o personagem       |
+| forca        | int  | 10 - 90       | Valor do poder de ataque bonus que o jogador vai receber  |
+| defesa       | int  | 10 - 90       | Valor do poder de defesa bonus  que o jogador vai receber |
 
 
 ### Entidade: Ataque 
@@ -52,7 +52,7 @@
 
 | Atributo | Tipo    | Valores Possiveis | Descrição             |
 | -------- | ------- | ------- | --------------------- |
-| idItem   | int     | 0 - 99      | Identificador do item |
+| idItem   | int     | 1 - 100      | Identificador do item |
 | nome     | varchar | 512      | Nome do item          |
 | peso     | int     | 1 - 100      | Peso de cada item     |
 | valor    | int     | 1 - 9999       | Valor do item         |
@@ -102,7 +102,7 @@
 
 | Atributo  | Tipo    | Valores Possiveis | Descrição              |
 | --------- | ------- | ------- | ---------------------- |
-| idNPC     | int     | 0 - 40      | Identificador do NPC   |
+| idNPC     | int     | 1 - 40      | Identificador do NPC   |
 | nome      | varchar | 512      | Nome do NPC            |
 | tipo      | varchar | 512      | Tipo de NPC (Inimigo, Personagem, Mercador ou Ferreiro)          |
 | descricao | varchar | 512      | Descrição sobre o NPC  |
@@ -148,7 +148,7 @@
 
 | Atributo  | Tipo    | Valores Possiveis | Descrição              |
 | --------- | ------- | ------- | ---------------------- |
-| idLocal   | int     | 0 - 50      | Identificador do local |
+| idLocal   | int     | 1 - 50      | Identificador do local |
 | descricao | varchar | 512      | Descrição do local     |
 | nome      | varchar | 512      | Nome do local          |
 
@@ -158,7 +158,7 @@
 | Atributo | Tipo | Valores Possiveis | Descrição                                |
 | -------- | ---- | ------- | ---------------------------------------- |
 | idBau    | int  | 0 - 25       | Identificador do Baú                     |
-| pos      | int  | 0 - 50       | Local onde o báu esta no mapa            |
+| pos      | int  | 1 - 50       | Local onde o báu esta no mapa            |
 | raridade | int  | 0 - 3       | Qualidade da recompensa                  |
 | tamanho  | int  | 1 - 3     | Quantidade de recompensas que tem no Baú |
 
@@ -177,8 +177,8 @@
 
 | Atributo  | Tipo    | Valores Possiveis | Descrição               |
 | --------- | ------- | ------- | ----------------------- |
-| idMissao  | int     | 0 - 10       | Identificador da missão |
+| idMissao  | int     | 1 - 10       | Identificador da missão |
 | descricao | varchar | 512      | Descrição da missão     |
 | objetivo  | varchar | 512      | Objetivo da missão      |
 | recompensa          |  varchar       |     512    |               Recompensa a ser ganha quando a missão for completa          |
-| iniciador| int| 0 - 40| Identificador do NPC que vai entregar a missão ao jogador| 
+| iniciador| int| 1 - 40| Identificador do NPC que vai entregar a missão ao jogador| 
