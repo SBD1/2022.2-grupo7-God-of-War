@@ -37,4 +37,4 @@ insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, 
 insert into personagem (nome, tipo, descricao, pos, dialogo)
 	values ('Freya', 2, 'descricao da personagem', 1, 'dialogo do personagem'),
 		   ('Jörmungandr', 2, 'descricao da personagem', 4, 'dialogo da personagem'),
-		   ('Atreus', 2, 'descricao da personagem', 3, 'dialogo da personagem')
+		   ('Atreus', 2, 'descricao da personagem', 3, 'dialogo da personagem');
