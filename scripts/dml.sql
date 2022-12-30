@@ -22,6 +22,15 @@ insert into armadura (nome, peso, valor, tipo, defesa, vida, nivel) values
 insert into pocao (nome, peso, valor, vidaregen) values 
 ('Poção Media', 5, 10, 50), ('Poção Pequena', 2, 10, 25),('Poção Grande', 10, 25, 100)
 
+-- Carga da tabela ataque
+ 
+insert into ataque (nome, multiplicador, qntalvos, descricao, id_tipoarma) values 
+('Bola de Fogo', 2, 1, 'Seu cajado começa a trocar de cor, começa a ficar avermelhado, presetes a derreter, então uma bola de fogo é disparada contra seu inimigo, causando o dobro do seu ataque.', 1)
+,('Ataque Vertical', 3, 1, 'Você segura sua espada com toda a força do seu corpo, com as duas mãos voce a levanta e executa um corte, partido seu inimiog ao meio.',2),
+('Apunhalar pelas costas', 3, 1,'Você passar para as costas do inimigo, de uma forma que ele nao te percebe, apunhalando-o nas costas', 3)
+
+
+
 
 insert into nivel (xpnecessario, forca, defesa)
 	values (10, 10, 10),
