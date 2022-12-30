@@ -17,6 +17,12 @@ insert into armadura (nome, peso, valor, tipo, defesa, vida, nivel) values
 ('Peitoral do Arcano', 15, 30, 'peitoral', 15, 100, 5),('Cinto do Arcano', 5, 30, 'cinto', 10, 50, 5),
 ('Peitoral Volunder', 50, 100, 'peitoral', 40, 200, 10),('Cinto Volunder', 25, 80, 'cinto', 100, 150, 10)
 
+-- Carga da tabela poçao 
+
+insert into pocao (nome, peso, valor, vidaregen) values 
+('Poção Media', 5, 10, 50), ('Poção Pequena', 2, 10, 25),('Poção Grande', 10, 25, 100)
+
+
 insert into nivel (xpnecessario, forca, defesa)
 	values (10, 10, 10),
 		   (20, 20, 20), 
