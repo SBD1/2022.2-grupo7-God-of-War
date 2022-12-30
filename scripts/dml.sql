@@ -10,6 +10,12 @@ insert into arma (nome,peso,valor,dano,id_tipoarma, nivel) values
 ('Adaga de Loki', 4, 200, 20, 3, 2),('Arco e Flecha de Atreus', 10, 200, 30, 4, 2),
 ('Martelo de Thor', 30, 300, 40, 5, 2),('Lamina do Caos', 15, 1000, 100, 6, 2);
 
+-- Carga da tabela armadura 
+
+insert into armadura (nome, peso, valor, tipo, defesa, vida, nivel) values 
+('Peitoral do Exilado', 20, 40, 'peitoral', 20, 100, 1),('Cinto do Exilado', 10, 20, 'cinto', 20, 100, 1),
+('Peitoral do Arcano', 15, 30, 'peitoral', 15, 100, 5),('Cinto do Arcano', 5, 30, 'cinto', 10, 50, 5),
+('Peitoral Volunder', 50, 100, 'peitoral', 40, 200, 10),('Cinto Volunder', 25, 80, 'cinto', 100, 150, 10)
 
 insert into nivel (xpnecessario, forca, defesa)
 	values (10, 10, 10),
