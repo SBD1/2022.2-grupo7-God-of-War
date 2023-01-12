@@ -7,6 +7,7 @@
 | 1.0    | 26/11 | Mateus Caltabiano | Confecção da primeira versão do Diagrama Entidade-Relacionamento |
 | 1.1    | 27/11 | Mateus Caltabiano | Adição da introdução                                             |
 | 1.2    | 27/11 | Mateus Caltabiano | Adição dos atributos no diagrama e reorganização do mesmo        |
+| 1.3    | 12/01 | Mateus Caltabiano | Reorganização das hierarquias
 
 ## 2. Introdução
 
