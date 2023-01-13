@@ -1,6 +1,7 @@
 | Data | Versão | Alteração |  Autor(es)   |
 | -------- | -------- | -------- | --- |
 | 27/11/2022     | 1.0     | Criação do documento  | [Felipe Alef](https://github.com/Alef012)  |
+| 13/01/2023     | 1.1     | Adição da entidade instância_item  | [Mateus Caltabiano](https://github.com/MateusCaltabiano)  |
 
 # Modelo Entidade-Relacionamento
 
@@ -18,7 +19,8 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
 - **Local**
 - **Baú**
 - **Inventário**
-- **Itens**
+- **Instância_item**
+- **Item**
     - **Equipamento**
         - **Armas**
         - **Armadura**
@@ -29,13 +31,14 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
 - **Jogador**: <ins>ID_Jogador</ins>, nome, vida_máxima, vida_atual, experiência, força, defesa, posição;
 - **Nivel**: <ins>ID_Nivel</ins>, xp_necessário, força, defesa;
 - **Ataques**: <ins>ID_Ataques</ins>, nome, multiplicador, qnt_de_alvos;
-- **NPC**: <ins>ID_NPC</ins>, Nome, tipo, descriçãõ, diálogo, pos;
+- **NPC**: <ins>ID_NPC</ins>, Nome, tipo, descrição, diálogo, pos;
     - **Mercador**: Itens,Multiplicador_de_valor;
     - **Inimigo**: Vida_máxima, Dano, Vida_atual, Ataque, Defesa;
     - **Personagem**
     - **Ferreiro**: Melhorias, Multiplicador_de_valor
 - **Local**: <ins>ID_Local</ins>, Nome, Descrição;
 - **Inventário**: <ins>ID_Inventário</ins>, Capacidade, capacidade_atual, hacksilver;
+- **Instância_item**: <ins>ID_instanciaItem</ins>, item;
 - **Item**: <ins>ID_Item</ins>, Nome, Valor, Descrição, Peso;
     - **Equipamento**
         - **Armadura**: Tipo, defesa, vida;
@@ -65,6 +68,8 @@ O Modelo Entidade Relacionamento para bancos de dados é um modelo que descreve 
 **Local contém NPC**
 - Um Local pode conter nenhum NPC ou vários (0,n). Um NPC pode estar contido em apenas um local (1,1).
 
+**Instância_item referencia Item**
+- Uma instância item pode referenciar apenas um item (1,1). Um item pode ser referenciado por nenhuma instância item ou várias instâncias item (0,n).
 
 **Inimigo ataca jogador**
 - Um inimigo pode atacar nenhum jogador ou vários jogadores (0,n). Um jogador pode ser atacado por nenhum inimigo ou vários inimigos (0,n).
@@ -90,14 +95,4 @@ Um mercador pode conter um ou mais itens(1,n). Um item pode ser contido em nenhu
 - Um jogador pode equipar um ou mais itens(0,n). Um item pode ser equipado por nenhum ou vários jogadores(0,n).
 
 **Jogador consome poção**
-- Um jogador pode consumir nenhuma ou uma poção (0,1). Uma poção pode ser consumida por nenhum ou vários jogadores(0,n)
-
-
-
-
-
-
-
-
-
-
+- Um jogador pode consumir nenhuma ou uma poção (0,1). Uma poção pode ser consumida por nenhum ou vários jogadores(0,n)/
