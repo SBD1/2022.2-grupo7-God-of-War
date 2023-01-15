@@ -7,5 +7,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=godOfWar
+    volumes:
+      - ./scripts/ddl.sql:/docker-entrypoint-initdb.d/ddl.sql
+      - ./scripts/dml.sql:/docker-entrypoint-initdb.d/dml.sql
 volumes:
   pgdata:

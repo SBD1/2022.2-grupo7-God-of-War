@@ -1,14 +1,15 @@
 -- Carga da tabela tipoarma
 
 insert into tipoarma (nome) values 
-('cajado'),('espada'),('adaga'),('arcoflecha'),('martelo'),('especial');
+('cajado'),('espada'),('adaga'),('arcoflecha'),('martelo'),('lanca'),('especial');
 
 -- Carga da tabela arma 
 
 insert into arma (nome,peso,valor,dano,id_tipoarma, nivel) values
 ('Cajado de Aprediz', 2, 100, 15, 1, 2),('Espada de Ragidal', 15, 200, 25, 2, 2),
 ('Adaga de Loki', 4, 200, 20, 3, 2),('Arco e Flecha de Atreus', 10, 200, 30, 4, 2),
-('Martelo de Thor', 30, 300, 40, 5, 2),('Lamina do Caos', 15, 1000, 100, 6, 2);
+('Martelo de Thor', 30, 300, 40, 5, 2),('Espada Gram', 13, 150, 20, 2, 2),
+('lança Gungnir',16,170,22,6,2 ),('Lamina do Caos', 15, 1000, 100, 7, 2);
 
 -- Carga da tabela armadura 
 
