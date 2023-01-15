@@ -4,6 +4,7 @@
 | Data | Versão | Alteração |  Autor(es)   |
 | -------- | -------- | -------- | --- |
 | 26/11/2022     | 1.0     | Criação do documento  | [Pedro](https://github.com/phnog)     |
+| 13/01/2023     | 1.1     | Adição de novas entidades | [Mateus Caltabiano](https://github.com/MateusCaltabiano)
 
 # Dicionário de Dados
 
@@ -56,6 +57,14 @@
 | nome     | varchar | 512      | Nome do item          |
 | peso     | int     | 1 - 100      | Peso de cada item     |
 | valor    | int     | 1 - 9999       | Valor do item         |
+
+### Entidade: Instância de item
+#### Descrição: Referências a itens do jogo
+
+| Atributo | Tipo | Valores possíveis | Descrição |
+| -------- | ---- | ----------------- | --------- |
+| ID_instanciaItem | int | 1 - 500 | Identificador da instância |
+| Item | int | 1 - 100 | Item referenciado |
 
 ### Entidade: Equipamento 
 #### Descrição: Itens que podem ser equipado pelo jogar. 
@@ -121,6 +130,14 @@
 | ataque   | int  | 0 - 99       | Ataques do inimigo                   |
 | vida     | int  | 10 - 10000     | Quantidade de vida do Inimigo |
 | vidaAtual     | int  | 10 - 10000     | Quantidade de vida do Inimigo |
+
+### Entidade: Instância de inimigo
+#### Descrição: Referência a um inimigo do jogo
+
+| Atributo | Tipo | Valores possíveis | Descrição |
+| -------- | ---- | ----------------- | --------- |
+| ID_instanciaInimigo | int | 1 - 30 | Identificador da instância |
+| inimigo | int | 1 - 40 | Inimigo referenciado |
 
 ### Entidade: Personagem 
 #### Descrição: Tipo de NPC neutro em relação ao jogador. 
