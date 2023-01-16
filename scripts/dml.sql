@@ -72,9 +72,9 @@ insert into ferreiro (nome, tipo, descricao, pos, dialogo, melhorias, multiValor
 	values ('Sindri', 4, 'descricao do sindri', 3, 'dialogo do sindri', 4, 3),
 		   ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok', 2, 2);
 
-insert into missao (descricao, objetivo, id_item, idnpc)
-	values ('missao da Freya', 'objetivo da missao', 1, 5),
-		   ('missao do Jörmungandr', 'objetivo da missao', 3, 6);
+--insert into missao (descricao, objetivo, id_item, idnpc)
+--	values ('missao da Freya', 'objetivo da missao', 1, 5),
+--		   ('missao do Jörmungandr', 'objetivo da missao', 3, 6);
 
 insert into bau (id_local, raridade, tamanho)
 	values (6, 2, 1),
