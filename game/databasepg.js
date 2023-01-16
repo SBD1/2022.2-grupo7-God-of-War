@@ -43,6 +43,17 @@ class Api{
 
     };
 
+    getLugar = async (id) => {
+        let response = [];
+        await this.db.query(`SELECT * FROM localTab WHERE id ='${id}'`)
+            .then((results) => {         
+                response = results.rows
+    })
+        //console.log(response[0]);
+        return response[0];
+
+    }
+
     criarTabelas = async() =>{
         let response = false; 
         await this.db.query(table)
@@ -104,7 +115,7 @@ main = async() => {
     let r = askAndReturn('1- Jogar\n2- Sair\n3- Criar e Popular Tabelas\n'); 
     if( r == 1 ){
         while (aux == 1){
-            nome = askAndReturn('Qual o nome do personagem?')
+            nome = askAndReturn('Bem vindo ao God of War - O bom de guerra!\nQual o nome do personagem?\n')
             try{
                 resultado = await api.getLogin(nome)
                 
@@ -120,21 +131,23 @@ main = async() => {
             let m = 0
             try {
                 result = await api.getLogin(nome)
+                lugar = await api.getLugar(result['id_local'])
+
             }catch (error) {
                 console.log(error)
             }
-            m = askAndReturn(`Você está em '${result['id_local']}', para onde você gostaria de ir agora?\n 1-Norte \t  2-Leste`)
+            m = askAndReturn(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'. \nPara onde voce gostaria de ir agora?\n 1-Norte \t  2-Leste\n`)
             if (m == 1){
             try{
-                await api.atualizarPosicao(jogador.id,4)
+                await api.atualizarPosicao(jogador.id,result['id_local'] + 1)
             } catch (error) {
                 console.log(error)
             }}
             if (m == 2){
                 try{
-                    await api.atualizarPosicao(jogador.id,2)
+                    await api.atualizarPosicao(jogador.id,result['id_local'] - 1)
 
-                    console.log("Você foi para a posição 2");
+                    //console.log("Você foi para a posição 2");
                 } catch (error) {
                     console.log(error)
                 }}
