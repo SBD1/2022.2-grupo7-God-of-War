@@ -70,13 +70,13 @@ insert into mercador (nome, tipo, descricao, pos, dialogo, multiVenda, itens)
 
 insert into ferreiro (nome, tipo, descricao, pos, dialogo, melhorias, multiValor)
 	values ('Sindri', 4, 'descricao do sindri', 3, 'dialogo do sindri', 4, 3),
-	values ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok', 2, 2);
+		   ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok', 2, 2);
 
-insert into missao (descricao, objetivo, recompensa, iniciador)
-	values ('missao da Freya', 'objetivo da missao', 'recompensa da missao', 5),
-		   ('missao do Jörmungandr', 'objetivo da missao', 'recompensa da missao', 6);
+insert into missao (descricao, objetivo, id_item, idnpc)
+	values ('missao da Freya', 'objetivo da missao', 1, 5),
+		   ('missao do Jörmungandr', 'objetivo da missao', 3, 6);
 
-insert into bau (pos, raridade, tamanho)
+insert into bau (id_local, raridade, tamanho)
 	values (6, 2, 1),
-	values (5, 0, 3),
-	values (1, 1, 3);
+		   (5, 0, 3),
+		   (1, 1, 3);
