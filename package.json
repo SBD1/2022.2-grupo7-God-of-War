@@ -1,0 +1,27 @@
+{
+  "name": "2022.2-grupo7-god-of-war",
+  "version": "1.0.0",
+  "description": "<img src=\"https://img.hype.games/cdn/8c8c766d-7b9e-4599-94c8-89d1970e29c5040122_Cover_%20[Nexway]%20Gof%20of%20War-600.jpg\">",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SBD1/2022.2-grupo7-God-of-War.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SBD1/2022.2-grupo7-God-of-War/issues"
+  },
+  "homepage": "https://github.com/SBD1/2022.2-grupo7-God-of-War#readme",
+  "dependencies": {
+    "pg": "^8.8.0",
+    "readline-sync": "^1.4.10"
+  }
+}
