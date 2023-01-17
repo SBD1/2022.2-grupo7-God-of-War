@@ -6,6 +6,7 @@
 | ------ | ----- | -----------------   | ---------------------------------------------------------------- |
 | 1.0    | 28/11 | Guilherme Kishimoto | Criação do documento                                             |
 | 1.1    | 28/11 | Guilherme Kishimoto | Correção da chave primária                                       |
+| 1.2    | 16/01 | Guilherme Kishimoto | Correção do MREL                                                 |
 
 
 ## 2. Introdução
