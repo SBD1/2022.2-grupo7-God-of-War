@@ -4,7 +4,8 @@
 
 | Versão | Data  | Autor             | Descrição                                                        |
 | ------ | ----- | ----------------- | ---------------------------------------------------------------- |
-| 1.0    | 28/11 | Mateus Caltabiano | Confecção do documento com vídeo para a primeira entrega do semestre |
+| 1.0    | 28/11/2022 | Mateus Caltabiano | Confecção do documento com vídeo para a primeira entrega do semestre |
+| 2.0    | 16/01/2023 | Mateus Caltabiano | Adição do vídeo da segunda entrega do semestre |
 
 ## 2. Introdução
 
@@ -15,4 +16,4 @@
 ## 3. Entregas
 
 ### [Entrega 1: Módulo 1 - MER, DER e MREL](https://youtu.be/kF1Ge2yg62Q)
-
+### [Entrega 2: Módulo 2 - SQL](https://drive.google.com/file/d/1t7XUd75hVizmPXebVRq88LSj74Tl42TF/view?usp=share_link)
