@@ -10,3 +10,17 @@
 | Guilherme Kishimoto | 190088257 | [Guilherme Kishimoto](https://github.com/guilhermekishimoto) |  
 
 [Entregas](https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/docs/entregas.md)
+
+## Instruções para executar o jogo
+
+# Clone o repositório
+$ git clone https://github.com/SBD1/2022.2-grupo7-God-of-War.git
+
+# Instale o Node, caso ainda não tenha instalado
+$ npm install
+
+# Inicialize o Docker
+$ docker-compose up
+
+# Execute o projeto em outro terminal
+$ node .\game\databasepg.js
