@@ -43,12 +43,17 @@ insert into nivel (xpnecessario, forca, defesa)
 		   (90, 90, 90);
 
 insert into localtab (descricao, nome)
-	values ('descricao do local', 'planicie'),
-		   ('descricao do local', 'montanha'),
-		   ('descricao do local', 'cidade'),
-		   ('descricao do local', 'beira do lago'), 
-		   ('descricao do local', 'floresta'), 
-		   ('descricao do local', 'clareira');
+	values ('Você está na Floresta Selvagem, escura e com um clima frio. O chão está coberto de neve e você escuta um pequeno rio correndo por perto.', 'Floresta Selvagem'),
+		   ('Após uma curta caminhada, você chega no rio. A água é limpa e convidativa.', 'Beira do rio'),
+		   ('Ao longo de um caminho sinuoso, você avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um pequeno jardim
+			de onde uma mulher colhe alguns ingredientes.', 'Casa da Bruxa'),
+		   ('Ao longo do horizonte você avista uma torre, com um elevador em sua base. Você caminha até lá e sobe. A vista do alto da torre
+			revela o grande Lago dos Nove, com uma enorme construção no centro e várias outras torres iguais as que você acabou de subir
+			rodeando o lago. Nas suas costas, um pouco distante, uma enorme montanha aparenta guardar algum segredo.', 'Torre do Vigia'),
+		   ('A entrada da montanha, um pouco acima da sua localização atual, está infestada de uma névoa escura. É necessário escalar para chegar até lá.
+			Em sua base, à direita, você avista um baú.', 'A Montanha'), 
+		   ('Pegando um pequeno barco a remo na margem do lago, você segue até a enorme construção do centro. Logo ao lado da doca, tem uma escadaria que leva
+			até o topo, onde tem uma ponte à sua direita e o prédio central à esquerda', 'O Lago dos Nove');
 
 insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_local, id_nivel)
 	values ('dummy', 100, 100, 5, 10, 10, 1, 1);
@@ -60,7 +65,7 @@ insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, 
 		   ('Ogro', 1, 'descricao do inimigo', 6, 'GRRRRAAAA!', 6, 5, 15, 15, 15);
 
 insert into personagem (nome, tipo, descricao, pos, dialogo)
-	values ('Freya', 2, 'descricao da personagem', 1, 'dialogo do personagem'),
+	values ('Freya', 2, 'descricao da personagem', 3, 'dialogo do personagem'),
 		   ('Jörmungandr', 2, 'descricao da personagem', 4, 'dialogo da personagem'),
 		   ('Atreus', 2, 'descricao da personagem', 3, 'dialogo da personagem');
 
