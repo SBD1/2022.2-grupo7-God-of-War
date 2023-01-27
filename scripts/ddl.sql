@@ -5,9 +5,9 @@ create type tipo_arma as enum ('cajado','espada','adaga','arcoflecha','martelo',
 
 create table item(
 	id serial constraint pk_id_item primary key, 
-	nome varchar(64),
-	peso float, 
-	valor float
+	nome varchar(64) not null,
+	peso float not null, 
+	valor float not null
 );
 
 -- Equipamento 
@@ -81,13 +81,13 @@ create table jogador(
 
 	id serial constraint pk_id_jogador primary key, 
 	nome varchar(64),
-	vidaAtual int, 
-	vidaTotal int, 
-	experiencia int, 
-	forca int, 
-	defesa int, 
-	id_local int, 
-	id_nivel int, 
+	vidaAtual int DEFAULT 100, 
+	vidaTotal int DEFAULT 100, 
+	experiencia int default 0, 
+	forca int default 10, 
+	defesa int default 10, 
+	id_local int default 1, 
+	id_nivel int default 1, 
 	constraint fk_id_local foreign key (id_local) references localTab (id),
 	constraint fk_id_nivel foreign key (id_nivel) references nivel (id)
 
