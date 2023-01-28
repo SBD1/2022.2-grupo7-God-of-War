@@ -127,7 +127,7 @@ main = async () => {
     while (vas == 0) {
         if (x == 0) { r = askAndReturn('===========================\n1- Jogar\n2- Sair\n3- Criar e Popular Tabelas\n'); }
         if (x == 1) { r = askAndReturn('1- Jogar\n2- Sair\n'); }
-
+        rep = 0
         if (r == 1) {
             temp = askAndReturn('1 - Entrar em um personagem existente \t 2 - Criar um novo personagem\n');
             if (temp == 1) {
@@ -142,14 +142,17 @@ main = async () => {
 
                     } catch (error) {
                         console.log("Usuario não existe. Tente novamente ou crie um personagem.")
+                        if(askAndReturn("1 - Voltar para o menu inicial \t 2 - Tentar novamente\n") == 1) main();
                     }
-                    if(askAndReturn("1 - Voltar para o menu inicial \t 2 - Tentar novamente\n") == 1) main();
+                    
                 }
             }
+            
             if (temp == 2){
                 nome = askAndReturn('Qual o nome do personagem a ser criado?\n'); 
                 try{
-                    resultado = await api.createNew(nome);
+                    
+                    await api.createNew(nome);
                     console.log("Jogador criado com sucesso.")
                     
                 }
@@ -159,16 +162,20 @@ main = async () => {
                 main(); 
 
             }
+            while(rep == 0){
             if (aux == 1) {
                 let m = 0
                 try {
+                    //console.log(`\n '${nome}'`)
                     result = await api.getLogin(nome)
                     lugar = await api.getLugar(result['id_local'])
+                    
 
                 } catch (error) {
                     console.log(error)
                 }
-                m = askAndReturn(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'. \nPara onde voce gostaria de ir agora?\n 1-Norte \t  2-Leste \t 3-Menu Principal\n`)
+                m = askAndReturn(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'. \nPara onde voce gostaria de ir agora?\n 1-Norte \t  2-Leste \t 3-Status do Jogador \t \t 4-Menu Principal\n`)
+
                 if (m == 1) {
                     try {
                         await api.atualizarPosicao(jogador.id, result['id_local'] + 1)
@@ -185,12 +192,17 @@ main = async () => {
                         console.log(error)
                     }
                 }
-                if (m == 3) {
+                if (m == 3){
+                        console.log(`\n${result['nome']} possui os seguintes status:\nVida - ${result['vidaatual']}/${result['vidatotal']}\nExperiencia - ${result['experiencia']}\nDefesa - ${result['defesa']}\n`)
+                        //console.log(result);
+
+                }
+                if (m == 4) {
                     x = 1
                     main(); 
                 }
             }
-        }
+        }}
         if (r == 2) {
             console.log("Voce saiu!")
             vas = 1
