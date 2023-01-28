@@ -9,7 +9,7 @@ insert into arma (nome,peso,valor,dano,id_tipoarma, nivel) values
 ('Cajado de Aprediz', 2, 100, 15, 1, 2),('Espada de Ragidal', 15, 200, 25, 2, 2),
 ('Adaga de Loki', 4, 200, 20, 3, 2),('Arco e Flecha de Atreus', 10, 200, 30, 4, 2),
 ('Martelo de Thor', 30, 300, 40, 5, 2),('Espada Gram', 13, 150, 20, 2, 2),
-('lança Gungnir',16,170,22,6,2 ),('Lamina do Caos', 15, 1000, 100, 7, 2);
+('lanca Gungnir',16,170,22,6,2 ),('Lamina do Caos', 15, 1000, 100, 7, 2);
 
 -- Carga da tabela armadura 
 
@@ -21,13 +21,13 @@ insert into armadura (nome, peso, valor, tipo, defesa, vida, nivel) values
 -- Carga da tabela poçao 
 
 insert into pocao (nome, peso, valor, vidaregen) values 
-('Poção Media', 5, 10, 50), ('Poção Pequena', 2, 10, 25),('Poção Grande', 10, 25, 100);
+('Pocao Media', 5, 10, 50), ('Pocao Pequena', 2, 10, 25),('Pocao Grande', 10, 25, 100);
 
 -- Carga da tabela ataque
  
 insert into ataque (nome, multiplicador, qntalvos, descricao, id_tipoarma) values 
-('Bola de Fogo', 2, 1, 'Seu cajado começa a trocar de cor, começa a ficar avermelhado, presetes a derreter, então uma bola de fogo é disparada contra seu inimigo, causando o dobro do seu ataque.', 1)
-,('Ataque Vertical', 3, 1, 'Você segura sua espada com toda a força do seu corpo, com as duas mãos voce a levanta e executa um corte, partido seu inimiog ao meio.',2),
+('Bola de Fogo', 2, 1, 'Seu cajado comeca a trocar de cor, comeca a ficar avermelhado, presetes a derreter, entao uma bola de fogo é disparada contra seu inimigo, causando o dobro do seu ataque.', 1)
+,('Ataque Vertical', 3, 1, 'Você segura sua espada com toda a forca do seu corpo, com as duas maos voce a levanta e executa um corte, partido seu inimiog ao meio.',2),
 ('Apunhalar pelas costas', 3, 1,'Você passar para as costas do inimigo, de uma forma que ele nao te percebe, apunhalando-o nas costas', 3);
 
 
@@ -43,16 +43,16 @@ insert into nivel (xpnecessario, forca, defesa)
 		   (90, 90, 90);
 
 insert into localtab (descricao, nome, proxsala)
-	values ('Você está na Floresta Selvagem, escura e com um clima frio. O chão está coberto de neve e você escuta um pequeno rio correndo por perto.', 'Floresta Selvagem', 1),
+	values ('Você está na Floresta Selvagem, escura e com um clima frio. O chao está coberto de neve e você escuta um pequeno rio correndo por perto.', 'Floresta Selvagem', 1),
 		   ('Após uma curta caminhada, você chega no rio. A água é limpa e convidativa.', 'Beira do rio', 2),
 		   ('Ao longo de um caminho sinuoso, você avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um pequeno jardim
 			de onde uma mulher colhe alguns ingredientes.', 'Casa da Bruxa', 2),
 		   ('Ao longo do horizonte você avista uma torre, com um elevador em sua base. Você caminha até lá e sobe. A vista do alto da torre
-			revela o grande Lago dos Nove, com uma enorme construção no centro e várias outras torres iguais as que você acabou de subir
+			revela o grande Lago dos Nove, com uma enorme construcao no centro e várias outras torres iguais as que você acabou de subir
 			rodeando o lago. Nas suas costas, um pouco distante, uma enorme montanha aparenta guardar algum segredo.', 'Torre do Vigia', 3),
-		   ('A entrada da montanha, um pouco acima da sua localização atual, está infestada de uma névoa escura. É necessário escalar para chegar até lá.
+		   ('A entrada da montanha, um pouco acima da sua localizacao atual, está infestada de uma névoa escura. É necessário escalar para chegar até lá.
 			Em sua base, à direita, você avista um baú.', 'A Montanha', 1), 
-		   ('Pegando um pequeno barco a remo na margem do lago, você segue até a enorme construção do centro. Logo ao lado da doca, tem uma escadaria que leva
+		   ('Pegando um pequeno barco a remo na margem do lago, você segue até a enorme construcao do centro. Logo ao lado da doca, tem uma escadaria que leva
 			até o topo, onde tem uma ponte à sua direita e o prédio central à esquerda', 'O Lago dos Nove', 3);
 
 insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_local, id_nivel)
