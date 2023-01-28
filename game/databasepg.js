@@ -43,6 +43,15 @@ class Api {
 
     };
 
+    createNew = async(name) => {
+        let response = []; 
+        await this.db.query(`INSERT INTO jogador (nome) VALUES ('${name}')`)
+            .then((results) => {
+                response = results.rows
+            })
+        return;
+    }
+
     getLugar = async (id) => {
         let response = [];
         await this.db.query(`SELECT * FROM localTab WHERE id ='${id}'`)
@@ -112,29 +121,45 @@ main = async () => {
     let jogador = new Jogador();
     let aux = 1
     let vas = 0;
-    let x = 0; 
-    let r; 
+    let x = 0;
+    let r;
     //console.log('1- Jogar\n2- Sair\n3- Criar e Popular Tabelas\n');
     while (vas == 0) {
-        if(x == 0){r = askAndReturn('1- Jogar\n2- Sair\n3- Criar e Popular Tabelas\n');}
-        if(x == 1){r = askAndReturn('1- Jogar\n2- Sair\n');}
-       
+        if (x == 0) { r = askAndReturn('===========================\n1- Jogar\n2- Sair\n3- Criar e Popular Tabelas\n'); }
+        if (x == 1) { r = askAndReturn('1- Jogar\n2- Sair\n'); }
+
         if (r == 1) {
-            while (aux == 1) {
-                nome = askAndReturn('Bem vindo ao God of War - O bom de guerra!\nQual o nome do personagem?\n')
-                try {
-                    resultado = await api.getLogin(nome)
+            temp = askAndReturn('1 - Entrar em um personagem existente \t 2 - Criar um novo personagem\n');
+            if (temp == 1) {
+                while (aux == 1) {
+                    nome = askAndReturn('Bem vindo ao God of War - O bom de guerra!\nQual o nome do personagem?\n')
+                    try {
+                        resultado = await api.getLogin(nome)
 
-                    jogador = new Jogador(resultado['id'], resultado['nome'], resultado['vidaAtual'], resultado['vidaTotal'], resultado['experiencia'], resultado['forca'], resultado['defesa'], resultado['id_local'], resultado['id_nivel'])
-                    console.log("Bem-vindo " + jogador.nome)
-                    break;
+                        jogador = new Jogador(resultado['id'], resultado['nome'], resultado['vidaAtual'], resultado['vidaTotal'], resultado['experiencia'], resultado['forca'], resultado['defesa'], resultado['id_local'], resultado['id_nivel'])
+                        console.log("Bem-vindo " + jogador.nome)
+                        break;
 
-                } catch (error) {
-                    console.log(error)
+                    } catch (error) {
+                        console.log("Usuario não existe. Tente novamente ou crie um personagem.")
+                    }
+                    if(askAndReturn("1 - Voltar para o menu inicial \t 2 - Tentar novamente\n") == 1) main();
                 }
             }
+            if (temp == 2){
+                nome = askAndReturn('Qual o nome do personagem a ser criado?\n'); 
+                try{
+                    resultado = await api.createNew(nome);
+                    console.log("Jogador criado com sucesso.")
+                    
+                }
+                catch(error){
+                    console.log(error)
+                };
+                main(); 
 
-            while (aux == 1) {
+            }
+            if (aux == 1) {
                 let m = 0
                 try {
                     result = await api.getLogin(nome)
@@ -161,11 +186,12 @@ main = async () => {
                     }
                 }
                 if (m == 3) {
-                    x = 1 
-                    break;}
+                    x = 1
+                    main(); 
+                }
             }
         }
-        if (r == 2){
+        if (r == 2) {
             console.log("Voce saiu!")
             vas = 1
             process.exit();
