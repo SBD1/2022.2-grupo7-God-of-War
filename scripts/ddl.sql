@@ -115,7 +115,7 @@ create table if not exists inimigo(
 	defesa int not null,
 	ataque int not null,
 	vida int not null,
-	vidaAtual int not null
+	vidaAtual int not null,
 	xpinimigo int not null
 ) inherits(npc);
 
