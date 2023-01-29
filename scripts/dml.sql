@@ -89,7 +89,7 @@ insert into nivel (xpnecessario, forca, defesa)
 		   (90, 90, 90);
 
 insert into localtab (descricao, nome, proxsala)
-	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao está coberto de neve e você escuta um pequeno rio correndo por perto.', 
+	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao esta coberto de neve e voce escuta um pequeno rio correndo por perto.', 
 		   'Floresta Selvagem', 1),
 		   ('Apos uma curta caminhada, você chega no rio. A agua e limpa e convidativa.', 'Beira do rio', 2),
 		   ('Ao longo de um caminho sinuoso, voce avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um pequeno jardim
