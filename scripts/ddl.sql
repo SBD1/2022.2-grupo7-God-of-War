@@ -116,6 +116,7 @@ create table if not exists inimigo(
 	ataque int not null,
 	vida int not null,
 	vidaAtual int not null
+	xpinimigo int not null
 ) inherits(npc);
 
 -- Personagem
