@@ -13,22 +13,41 @@ create table if not exists item(
 -- Equipamento 
 
 create table if not exists equipamento(
-	nivel int default 1 not null
-)inherits(item);
+	id serial constraint pk_id_equipamento primary key,
+	nome varchar(64) not null,
+	peso float not null, 
+	valor float not null,
+	nivel int default 1 not null,
+	id_item int not null,
+	constraint fk_id_item foreign key (id_item) references item (id)
+);
 
 -- Poção 
 
 create table if not exists pocao(
-	vidaRegen int not null
-)inherits(item);  
+	id serial constraint pk_id_pocao primary key, 
+	nome varchar(64) not null,
+	peso float not null, 
+	valor float not null,
+	vidaRegen int not null,
+	id_item int not null,
+	constraint fk_id_item foreign key (id_item) references item (id)
+);  
 
 -- Armadura
 
 create table if not exists armadura(
+	id serial constraint pk_id_armadura primary key,
+	nome varchar(64) not null,
+	peso float not null, 
+	valor float not null,
+	nivel int default 1 not null,
 	tipo tipo_armadura,
-	defesa int not null, 
-	vida int not null
-)inherits(equipamento); 
+	defesa int not null,
+	vida int not null,
+	id_equipamento int not null,
+	constraint fk_id_equipamento foreign key (id_equipamento) references equipamento(id)
+); 
 
 -- Tipo Arma
 
@@ -40,10 +59,17 @@ create table if not exists tipoArma(
 -- Arma 
 
 create table if not exists arma(
+	id serial constraint pk_id_arma primary key,
+	nome varchar(64) not null,
+	peso float not null, 
+	valor float not null,
+	nivel int default 1 not null,
 	dano int not null,
 	id_tipoarma int not null,
-	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id)
-)inherits(equipamento);
+	id_equipamento int not null,
+	constraint fk_int_tipoarma foreign key (id_tipoarma) references tipoArma (id),
+	constraint fk_id_equipamento foreign key (id_equipamento) references equipamento (id)
+);
 
 -- Ataque 
 
@@ -111,32 +137,64 @@ create table if not exists npc(
 -- Inimigo
 
 create table if not exists inimigo(
+	id serial constraint pk_inimigo primary key,
+	nome varchar(512) not null,
+	tipo int not null,
+	descricao varchar(512) not null,
+	pos int not null,
+	dialogo varchar(512) not null,
 	dano int not null,
 	defesa int not null,
 	ataque int not null,
 	vida int not null,
 	vidaAtual int not null,
-	xpinimigo int not null
-) inherits(npc);
+	xpinimigo int not null,
+	idNPC int not null,
+	constraint fk_npc foreign key (idNPC) references npc (idNPC)
+);
 
 -- Personagem
 
 create table if not exists personagem(
-) inherits(npc);
+	id serial constraint pk_personagem primary key,
+	nome varchar(512) not null,
+	tipo int not null,
+	descricao varchar(512) not null,
+	pos int not null,
+	dialogo varchar(512) not null,
+	idNPC int not null,
+	constraint fk_idNPC foreign key (idNPC) references npc (idNPC)
+);
 
 -- Mercador
 
 create table if not exists mercador(
+	id serial constraint pk_mercador primary key,
+	nome varchar(512) not null,
+	tipo int not null,
+	descricao varchar(512) not null,
+	pos int not null,
+	dialogo varchar(512) not null,
 	multiVenda int default 1 not null,
-	itens int not null
-) inherits(npc);
+	itens int not null,
+	idNPC int not null,
+	constraint fk_idNPC foreign key (idNPC) references npc (idNPC)
+);
 
 -- Ferreiro
 
 create table if not exists ferreiro(
+	id serial constraint pk_ferreiro primary key,
+	nome varchar(512) not null,
+	tipo int not null,
+	descricao varchar(512) not null,
+	pos int not null,
+	dialogo varchar(512) not null,
 	melhorias int not null,
-	multiValor int default 1 not null
-) inherits (npc);
+	multiValor int default 1 not null,
+	idNPC int not null,
+	constraint fk_idNPC foreign key (idNPC) references npc (idNPC)
+);
 
 -- Inventario
 
@@ -174,6 +232,8 @@ create table if not exists bau(
 	constraint fk_id_item foreign key (id_item) references item (id),
 	constraint fk_id_local foreign key (id_local) references localTab(id)
 );
+
+-- backup
 
 /*create type tipo_armadura as enum ('peitoral','cinto');
 create type tipo_arma as enum ('cajado','espada','adaga','arcoflecha','martelo','especial', 'lanca');
@@ -347,4 +407,4 @@ create table bau(
 	id_item int,
 	constraint fk_id_item foreign key (id_item) references item (id),
 	constraint fk_id_local foreign key (id_local) references localTab(id)
-);
+);*/
