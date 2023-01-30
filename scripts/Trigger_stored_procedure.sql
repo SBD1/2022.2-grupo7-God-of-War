@@ -38,28 +38,35 @@ $inimigo_morre$ LANGUAGE plpgsql;
 --caso o jogador morra
 CREATE OR REPLACE FUNCTION jogador_morre()
 RETURNS TRIGGER AS $jogador_morre$
-BEGIN
+DECLARE
+	morte INT;
+begin
+	SELECT mortes INTO morte FROM jogador WHERE jogador.id = NEW.id;
   UPDATE jogador
   SET id_local = DEFAULT,
-      vidaAtual = DEFAULT,
+      vidaAtual = default ,
       vidaTotal = DEFAULT,
       experiencia = DEFAULT,
       id_nivel = DEFAULT,
-      morte = morte + 1
-  WHERE id = OLD.id;
-
+      mortes = morte + 1
+  WHERE id = NEW.id;
+  RAISE NOTICE 'Voce morreu';
   DELETE FROM inventario
-  WHERE id_jogador = OLD.id;
+  WHERE id_jogador = NEW.id;
 
-  RETURN OLD;
+  RETURN NEW;
 END;
 $jogador_morre$ LANGUAGE plpgsql;
 
-CREATE jogador_morre_trigger
+CREATE trigger jogador_morre_trigger
 AFTER UPDATE ON jogador
 FOR EACH ROW
-WHEN (OLD.vida <= 0 AND NEW.vida > 0)
-EXECUTE jogador_morre();
+WHEN (NEW.vidaAtual <= 0)
+EXECUTE procedure jogador_morre();
+
+update jogador 
+set vidaAtual = 0
+where id = 1
 
 
 -- Quando voce vai comprar algo
