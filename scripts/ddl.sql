@@ -233,6 +233,12 @@ create table if not exists bau(
 	constraint fk_id_local foreign key (id_local) references localTab(id)
 );
 
+create table if not exists instancia_inimigo (
+	id serial constraint pk_idInstanciaInimigo primary key,
+	id_inimigo int not null,
+	constraint fk_id_inimigo foreign key (id_inimigo) references inimigo(id)
+)
+
 -- backup
 
 /*create type tipo_armadura as enum ('peitoral','cinto');

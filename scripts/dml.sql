@@ -70,11 +70,11 @@ insert into pocao (nome, peso, valor, vidaregen, id_item)
 -- Carga da tabela ataque
  
 insert into ataque (nome, multiplicador, qntalvos, descricao, id_tipoarma) 
-	values ('Bola de Fogo', 2, 1, 'Seu cajado comeca a trocar de cor, comeca a ficar avermelhado, prestes a derreter, entao uma bola de fogo é disparada
+	values ('Bola de Fogo', 2, 1, 'Seu cajado comeca a trocar de cor, comeca a ficar avermelhado, prestes a derreter, entao uma bola de fogo eh disparada
 		   contra seu inimigo, causando o dobro do seu ataque.', 1),
 		   ('Ataque Vertical', 3, 1, 'Você segura sua espada com toda a forca do seu corpo, com as duas maos voce a levanta e executa um corte,
 		   partido seu inimigo ao meio.',2),
-		   ('Apunhalar pelas costas', 3, 1,'Você passar para as costas do inimigo, de uma forma que ele nao te percebe, apunhalando-o nas costas', 3);
+		   ('Apunhalar pelas costas', 3, 1,'Voce passar para as costas do inimigo, de uma forma que ele nao te percebe, apunhalando-o nas costas', 3);
 
 
 insert into nivel (xpnecessario, forca, defesa)
@@ -128,9 +128,9 @@ insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, 
 		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!', 6, 5, 15, 15, 15, 25, 4);
 
 insert into personagem (nome, tipo, descricao, pos, dialogo, idnpc)
-	values ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do próprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar', 5),
+	values ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar', 5),
 		   ('Jormungandr', 2, 'Tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem', 6),
-		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'dialogo da personagem', 7);
+		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'Nao aguento mais ser chamado de garoto. Se voce matar o velho, eu te dou uma recompensa', 7);
 
 insert into mercador (nome, tipo, descricao, pos, dialogo, multiVenda, itens, idnpc)
 	values ('Mercador da cidade', 3, 'descricao do mercador', 3, 'dialogo do mercador', 2, 4, 8),
@@ -142,7 +142,7 @@ insert into ferreiro (nome, tipo, descricao, pos, dialogo, melhorias, multiValor
 
 insert into missao (descricao, objetivo, id_item, idnpc)
 	values ('missao da Freya', 'objetivo da missao', 1, 5),
-		   ('missao do Jörmungandr', 'objetivo da missao', 3, 6);
+		   ('missao do Jormungandr', 'objetivo da missao', 3, 6);
 
 insert into bau (id_local, raridade, tamanho)
 	values (6, 2, 1),
