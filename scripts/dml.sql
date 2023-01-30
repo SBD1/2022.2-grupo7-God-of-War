@@ -109,28 +109,28 @@ insert into inventario (id_jogador, carga, capacidade, hacksilver)
 	values(1, 0, 100, 0);
 
 insert into npc (nome, tipo, descricao, pos, dialogo)
-	values ('Draugr', 1, 'descricao do inimigo', 2, 'ROAR!'),
-		   ('Troll', 1, 'descricao do inimigo', 5, 'ROAR!'),
-		   ('Lobo', 1, 'descricao do inimigo', 4, 'AUUUUUUU!'),
-		   ('Ogro', 1, 'descricao do inimigo', 6, 'GRRRRAAAA!'),
-		   ('Freya', 2, 'descricao da personagem', 3, 'dialogo do personagem'),
-		   ('Jörmungandr', 2, 'descricao da personagem', 4, 'dialogo da personagem'),
-		   ('Atreus', 2, 'descricao da personagem', 3, 'dialogo da personagem'),
-		   ('Mercador da cidade', 3, 'descricao do mercador', 3, 'dialogo do mercador'),
-		   ('Mercador da floresta', 3, 'descricao do mercador', 5, 'dialogo do mercador'),
+	values ('Draugr', 1, 'Draugrs sao cadaveres reanimados que assombram os campos de batalha', 2, 'ROAR!'),
+		   ('Troll', 1, 'Trolls sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto.', 5, 'ROAR!'),
+		   ('Lobo', 1, 'Na maioria das vezes aparecem em bandos e podem aparecer aliados com bruxas. Atacam com bastante rapidez, nao seja cercado.', 4, 'AUUUUUUU!'),
+		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!'),
+		   ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar'),
+		   ('Jormungandr', 2, 'Tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem'),
+		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'dialogo da personagem'),
+		   ('Mercador da Torre', 3, 'Um simples mercador com sua pequena tenda na base da torre.', 3, 'Saudacoes viajante, como posso te ajudar hoje?'),
+		   ('Mercador da montanha', 3, 'Um homem com uma tunica negra e carregando uma pequena trouxa em suas costas.', 5, 'Tocou, comprou.'),
 		   ('Sindri', 4, 'descricao do sindri', 3, 'dialogo do sindri'),
 		   ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok');
 
 insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, vida, vidaatual, xpinimigo, idnpc)
-	values ('Draugr', 1, 'descricao do inimigo', 2, 'ROAR!', 2, 1, 1, 5, 5, 10, 1),
-		   ('Troll', 1, 'descricao do inimigo', 5, 'ROAR!', 8, 6, 1, 20, 20, 30, 2), 
-		   ('Lobo', 1, 'descricao do inimigo', 4, 'AUUUUUUU!', 1, 1, 1, 3, 3, 5, 3),
-		   ('Ogro', 1, 'descricao do inimigo', 6, 'GRRRRAAAA!', 6, 5, 15, 15, 15, 25, 4);
+	values ('Draugr', 1, 'Draugrs sao cadaveres reanimados que assombram os campos de batalha', 2, 'ROAR!', 2, 1, 1, 5, 5, 10, 1),
+		   ('Troll', 1, 'Trolls sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto', 5, 'ROAR!', 8, 6, 1, 20, 20, 30, 2), 
+		   ('Lobo', 1, 'Na maioria das vezes aparecem em bandos e podem aparecer aliados com bruxas. Atacam com bastante rapidez, não seja cercado.', 4, 'AUUUUUUU!', 1, 1, 1, 3, 3, 5, 3),
+		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!', 6, 5, 15, 15, 15, 25, 4);
 
 insert into personagem (nome, tipo, descricao, pos, dialogo, idnpc)
-	values ('Freya', 2, 'descricao da personagem', 3, 'dialogo do personagem', 5),
-		   ('Jörmungandr', 2, 'descricao da personagem', 4, 'dialogo da personagem', 6),
-		   ('Atreus', 2, 'descricao da personagem', 3, 'dialogo da personagem', 7);
+	values ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do próprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar', 5),
+		   ('Jormungandr', 2, 'Tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem', 6),
+		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'dialogo da personagem', 7);
 
 insert into mercador (nome, tipo, descricao, pos, dialogo, multiVenda, itens, idnpc)
 	values ('Mercador da cidade', 3, 'descricao do mercador', 3, 'dialogo do mercador', 2, 4, 8),
