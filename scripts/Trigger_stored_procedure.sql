@@ -34,3 +34,50 @@ BEGIN
     END IF;
 END;
 $inimigo_morre$ LANGUAGE plpgsql;
+
+--caso o jogador morra
+CREATE OR REPLACE FUNCTION jogador_morre()
+RETURNS TRIGGER AS $jogador_morre$
+BEGIN
+  UPDATE jogador
+  SET id_local = DEFAULT,
+      vidaAtual = DEFAULT,
+      vidaTotal = DEFAULT,
+      experiencia = DEFAULT,
+      id_nivel = DEFAULT,
+      morte = morte + 1
+  WHERE id = OLD.id;
+
+  DELETE FROM inventario
+  WHERE id_jogador = OLD.id;
+
+  RETURN OLD;
+END;
+$jogador_morre$ LANGUAGE plpgsql;
+
+CREATE jogador_morre_trigger
+AFTER UPDATE ON jogador
+FOR EACH ROW
+WHEN (OLD.vida <= 0 AND NEW.vida > 0)
+EXECUTE jogador_morre();
+
+
+-- Quando voce vai comprar algo
+CREATE OR REPLACE FUNCTION atualiza_hacksilver()
+RETURNS TRIGGER AS $atualiza_hacksilver$
+DECLARE
+	qtd_hacksilver INT;
+BEGIN
+	SELECT hacksilver INTO qtd_hacksilver FROM inventario WHERE id_jogador = NEW.id_jogador;
+	
+	IF qtd_hacksilver >= NEW.valor THEN
+		UPDATE inventario SET hacksilver = hacksilver - NEW.valor WHERE id_jogador = NEW.id_jogador;
+		INSERT INTO inventario (id_jogador, id_item) VALUES (NEW.id_jogador, NEW.id_item);
+		RETURN NEW;
+	ELSE
+		RAISE EXCEPTION 'Você não possui Hacksilver suficiente';
+	END IF;
+END;
+$atualiza_hacksilver$ LANGUAGE plpgsql;
+--falta a trigger
+
