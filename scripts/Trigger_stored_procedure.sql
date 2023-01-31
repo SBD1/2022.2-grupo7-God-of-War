@@ -64,14 +64,10 @@ FOR EACH ROW
 WHEN (NEW.vidaAtual <= 0)
 EXECUTE procedure jogador_morre();
 
-update jogador 
-set vidaAtual = 0
-where id = 1
-
 
 -- Quando voce vai comprar algo
-CREATE OR REPLACE FUNCTION atualiza_hacksilver()
-RETURNS TRIGGER AS $atualiza_hacksilver$
+CREATE OR REPLACE FUNCTION compra_mercador()
+RETURNS TRIGGER AS $compra_mercador$
 DECLARE
 	qtd_hacksilver INT;
 BEGIN
@@ -82,9 +78,44 @@ BEGIN
 		INSERT INTO inventario (id_jogador, id_item) VALUES (NEW.id_jogador, NEW.id_item);
 		RETURN NEW;
 	ELSE
-		RAISE EXCEPTION 'Você não possui Hacksilver suficiente';
+		RAISE NOTICE 'Você não possui Hacksilver suficiente';
 	END IF;
 END;
-$atualiza_hacksilver$ LANGUAGE plpgsql;
+$compra_mercador$ LANGUAGE plpgsql;
 --falta a trigger
 
+
+-- Utilizar a pocao
+CREATE OR REPLACE FUNCTION usar_porcao()
+RETURNS TRIGGER AS $usar_porcao$
+DECLARE
+  vida_pocao INT;
+  vida INT;
+  vida_atual INT;
+  vida_total INT;
+BEGIN
+  SELECT vidaregen INTO vida_pocao FROM pocao WHERE pocao.id_item = old.id_item;
+  SELECT vidaAtual INTO vida FROM jogador WHERE jogador.id = NEW.id_jogador;
+  SELECT vidaAtual INTO vida_atual FROM jogador WHERE jogador.id = NEW.id_jogador;
+  SELECT vidaTotal INTO vida_total FROM jogador WHERE jogador.id = NEW.id_jogador;
+
+  UPDATE jogador
+  SET vida_atual = vida + vida_pocao
+  WHERE jogador.id = new.id_jogador;
+  RAISE NOTICE 'Vida da poçãosf: ';
+
+  IF vida_atual > vida_total THEN
+    UPDATE jogador
+    SET vidaAtual = vida_total
+    WHERE id = NEW.id_jogador;
+  END IF;
+
+  RETURN NEW;
+END;
+$usar_porcao$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER usar_porcao_trigger
+AFTER DELETE ON inventario
+FOR EACH ROW
+EXECUTE FUNCTION usar_porcao();
