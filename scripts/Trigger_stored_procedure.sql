@@ -222,6 +222,31 @@ AFTER DELETE ON inventario
 FOR EACH ROW
 EXECUTE FUNCTION diminui_carga();
 
+--trigger para caso o jogador fique com mais carga que a capacidade do inventario ele tenha que selecionar o que quer descartar
+CREATE OR REPLACE FUNCTION verifica_carga()
+RETURNS TRIGGER AS $verifica_carga$
+DECLARE
+  cargaTotal INT;
+  capacidadeTotal INT;
+BEGIN
+  SELECT carga INTO cargaTotal FROM inventario WHERE inventario.id_jogador = NEW.id_jogador;
+  SELECT capacidade INTO capacidadeTotal FROM inventario WHERE inventario.id_jogador = NEW.id_jogador;
+
+ --a carga esta somando mais dois ao adicionar o primeiro item
+  IF cargaTotal > capacidadeTotal+2 THEN
+    RAISE NOTICE 'Sua carga está maior que a capacidade do inventário, selecione o que deseja descartar';
+  END IF;
+
+  RETURN NEW;
+END;
+$verifica_carga$ LANGUAGE plpgsql;
+
+CREATE TRIGGER verifica_carga_trigger
+AFTER update  ON inventario
+FOR EACH ROW
+EXECUTE FUNCTION verifica_carga();
+
+
 
 
 
