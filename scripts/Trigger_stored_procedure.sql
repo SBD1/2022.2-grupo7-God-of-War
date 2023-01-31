@@ -99,17 +99,18 @@ BEGIN
   SELECT vidaAtual INTO vida_atual FROM jogador WHERE jogador.id = old.id_jogador;
   SELECT vidaTotal INTO vida_total FROM jogador WHERE jogador.id = old.id_jogador;
 
- 
-  vida_atual := vida + vida_pocao;
- 
-  UPDATE jogador
-  SET vidaAtual = vida_atual
-  WHERE id = old.id_jogador;
-
-  IF vida_atual > vida_total THEN
+  IF vida_pocao IS NOT NULL then
+    vida_atual := vida + vida_pocao;
+    
     UPDATE jogador
-    SET vidaAtual = vida_total
+    SET vidaAtual = vida_atual
     WHERE id = old.id_jogador;
+
+    IF vida_atual > vida_total THEN
+        UPDATE jogador
+        SET vidaAtual = vida_total
+        WHERE id = old.id_jogador;
+    END IF;
   END IF;
 
   RETURN NEW;
@@ -121,3 +122,21 @@ CREATE TRIGGER usar_porcao_trigger
 AFTER DELETE ON inventario
 FOR EACH ROW
 EXECUTE FUNCTION usar_porcao();
+
+--verifica se o jogador ja possui o item
+CREATE OR REPLACE FUNCTION impede_item_duplicado()
+RETURNS TRIGGER AS $impede_item_duplicado$
+BEGIN
+  IF EXISTS (SELECT 1 FROM inventario WHERE id_jogador = NEW.id_jogador AND id_item = NEW.id_item) THEN
+    RAISE NOTICE  'Este item já está no inventário do jogador';
+    return null;
+  END IF;
+
+  RETURN NEW;
+END;
+$impede_item_duplicado$ LANGUAGE plpgsql;
+
+CREATE TRIGGER impede_item_duplicado_trigger
+BEFORE INSERT ON inventario
+FOR EACH ROW
+EXECUTE FUNCTION impede_item_duplicado();
