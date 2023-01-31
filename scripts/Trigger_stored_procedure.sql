@@ -175,3 +175,53 @@ WHEN (OLD.id_local != NEW.id_local)
 EXECUTE FUNCTION descricao_local();
 
 
+--trigger para quando o jogador pegar um item a carga do inventrio aumenta de acordo com o peso do item
+CREATE OR REPLACE FUNCTION aumenta_carga()
+RETURNS TRIGGER AS $aumenta_carga$
+DECLARE
+  pesoItem INT;
+  cargaItem INT;
+BEGIN
+  SELECT peso INTO pesoItem FROM item WHERE item.id = NEW.id_item;
+  SELECT carga INTO cargaItem FROM inventario WHERE inventario.id_jogador = NEW.id_jogador;
+
+  UPDATE inventario
+  SET carga = cargaItem + pesoItem
+  WHERE id_jogador = NEW.id_jogador;
+
+  RETURN NEW;
+END;
+$aumenta_carga$ LANGUAGE plpgsql;
+
+CREATE TRIGGER aumenta_carga_trigger
+AFTER INSERT ON inventario
+FOR EACH ROW
+EXECUTE FUNCTION aumenta_carga();
+
+
+--trigger para quando o jogador tirar um item a carga do inventrio diminui de acordo com o peso do item
+CREATE OR REPLACE FUNCTION diminui_carga()
+RETURNS TRIGGER AS $diminui_carga$
+DECLARE
+  pesoItem INT;
+  cargaItem INT;
+BEGIN
+  SELECT peso INTO pesoItem FROM item WHERE item.id = OLD.id_item;
+  SELECT carga INTO cargaItem FROM inventario WHERE inventario.id_jogador = OLD.id_jogador;
+
+  UPDATE inventario
+  SET carga = cargaItem - pesoItem
+  WHERE id_jogador = OLD.id_jogador;
+
+  RETURN NEW;
+END;
+$diminui_carga$ LANGUAGE plpgsql;
+
+CREATE TRIGGER diminui_carga_trigger
+AFTER DELETE ON inventario
+FOR EACH ROW
+EXECUTE FUNCTION diminui_carga();
+
+
+
+
