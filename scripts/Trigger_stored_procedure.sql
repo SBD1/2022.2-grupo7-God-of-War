@@ -95,19 +95,21 @@ DECLARE
   vida_total INT;
 BEGIN
   SELECT vidaregen INTO vida_pocao FROM pocao WHERE pocao.id_item = old.id_item;
-  SELECT vidaAtual INTO vida FROM jogador WHERE jogador.id = NEW.id_jogador;
-  SELECT vidaAtual INTO vida_atual FROM jogador WHERE jogador.id = NEW.id_jogador;
-  SELECT vidaTotal INTO vida_total FROM jogador WHERE jogador.id = NEW.id_jogador;
+  SELECT vidaAtual INTO vida FROM jogador WHERE jogador.id = old.id_jogador;
+  SELECT vidaAtual INTO vida_atual FROM jogador WHERE jogador.id = old.id_jogador;
+  SELECT vidaTotal INTO vida_total FROM jogador WHERE jogador.id = old.id_jogador;
 
+ 
+  vida_atual := vida + vida_pocao;
+ 
   UPDATE jogador
-  SET vida_atual = vida + vida_pocao
-  WHERE jogador.id = new.id_jogador;
-  RAISE NOTICE 'Vida da poçãosf: ';
+  SET vidaAtual = vida_atual
+  WHERE id = old.id_jogador;
 
   IF vida_atual > vida_total THEN
     UPDATE jogador
     SET vidaAtual = vida_total
-    WHERE id = NEW.id_jogador;
+    WHERE id = old.id_jogador;
   END IF;
 
   RETURN NEW;
