@@ -79,6 +79,7 @@ BEGIN
 		RETURN NEW;
 	ELSE
 		RAISE NOTICE 'Você não possui Hacksilver suficiente';
+    return null;
 	END IF;
 END;
 $compra_mercador$ LANGUAGE plpgsql;
@@ -117,11 +118,11 @@ BEGIN
 END;
 $usar_porcao$ LANGUAGE plpgsql;
 
-
 CREATE TRIGGER usar_porcao_trigger
 AFTER DELETE ON inventario
 FOR EACH ROW
 EXECUTE FUNCTION usar_porcao();
+
 
 --verifica se o jogador ja possui o item
 CREATE OR REPLACE FUNCTION impede_item_duplicado()
@@ -140,3 +141,37 @@ CREATE TRIGGER impede_item_duplicado_trigger
 BEFORE INSERT ON inventario
 FOR EACH ROW
 EXECUTE FUNCTION impede_item_duplicado();
+
+
+--descricao do local, npc e bau
+CREATE OR REPLACE FUNCTION descricao_local()
+RETURNS TRIGGER AS $descricao_local$
+DECLARE
+  descricao_local TEXT;
+  descricao_npc TEXT;
+  descricao_bau INT;
+BEGIN
+  SELECT descricao INTO descricao_local FROM localtab WHERE localtab.id = NEW.id_local;
+  RAISE NOTICE 'Local: %', descricao_local;
+
+  SELECT descricao INTO descricao_npc FROM npc WHERE npc.pos = NEW.id_local;
+  IF descricao_npc IS NOT NULL THEN
+    RAISE NOTICE 'NPC: %', descricao_npc;
+  END IF;
+
+  SELECT id INTO descricao_bau FROM bau WHERE bau.id_local = NEW.id_local;
+  IF descricao_bau IS NOT NULL THEN
+    RAISE NOTICE 'Baú: Voce encontrou um baú';
+  END IF;
+
+  RETURN NEW;
+END;
+$descricao_local$ LANGUAGE plpgsql;
+
+CREATE TRIGGER descricao_local_trigger
+AFTER UPDATE ON jogador
+FOR EACH ROW
+WHEN (OLD.id_local != NEW.id_local)
+EXECUTE FUNCTION descricao_local();
+
+
