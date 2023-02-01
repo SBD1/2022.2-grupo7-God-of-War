@@ -105,7 +105,6 @@ create table if not exists nivel (
 -- Jogador 
 
 create table if not exists jogador(
-
 	id serial constraint pk_id_jogador primary key, 
 	nome varchar(64),
 	vidaAtual int DEFAULT 100 not null, 
@@ -199,8 +198,7 @@ create table if not exists ferreiro(
 -- Inventario
 
 create table if not exists inventario(
-
-    id_jogador int not null, 
+	id_jogador int not null, 
 	carga int not null,
 	capacidade int default 100 not null,
 	hacksilver int default 0 not null,

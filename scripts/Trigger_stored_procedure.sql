@@ -2,7 +2,7 @@
 create or replace function jogador_ja_existe() returns trigger 
 as $jogador_ja_existe$
 begin 
-	perform * from tb_jogador where nome = new.nome;
+	perform * from jogador where nome = new.nome;
 	if found then 
 		raise exception 'Este jogador já existe';
 	end if;
@@ -11,7 +11,7 @@ end
 $jogador_ja_existe$ language plpgsql;
 
 create trigger jogador_ja_existe
-before update or insert on tb_jogador 
+before insert on jogador 
 for each row execute procedure jogador_ja_existe();
 
 -- Procedure para quando um inimigo morre
@@ -260,6 +260,29 @@ CREATE TRIGGER verifica_carga_trigger
 AFTER update  ON inventario
 FOR EACH ROW
 EXECUTE FUNCTION verifica_carga();
+
+--Trigger para subir o nível do jogador
+CREATE OR REPLACE FUNCTION update_nivel() RETURNS TRIGGER AS $$
+DECLARE
+    jogador_id INTEGER;
+    novo_nivel INTEGER;
+BEGIN
+    jogador_id := NEW.id;
+    SELECT id INTO novo_nivel FROM nivel WHERE xpNecessario <= NEW.experiencia ORDER BY xpNecessario DESC LIMIT 1;
+    IF novo_nivel IS NOT NULL THEN
+        UPDATE jogador SET id_nivel = novo_nivel WHERE id = jogador_id;
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER aumentar_nivel
+AFTER INSERT OR UPDATE OF experiencia ON jogador
+FOR EACH ROW
+EXECUTE FUNCTION update_nivel();
+
+
+
 
 
 
