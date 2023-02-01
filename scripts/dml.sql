@@ -89,18 +89,17 @@ insert into nivel (xpnecessario, forca, defesa)
 		   (90, 90, 90);
 
 insert into localtab (descricao, nome, proxsala)
-	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao esta coberto de neve e voce escuta um pequeno rio correndo por perto. Voce olha para frente e ve um pequeno caminho de terra.', 
+	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao esta coberto de neve e voce escuta um pequeno rio correndo por perto. Olhando diretamente para frente, voce ve uma estreita trilha por entre as altas arvores que te rodeiam.', 
 		   'Floresta Selvagem', 1),
-		   ('Apos uma curta caminhada, você chega no rio. A agua e limpa e convidativa.', 'Beira do rio', 2),
-		   ('Ao longo de um caminho sinuoso, voce avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um pequeno jardim
-			de onde uma mulher colhe alguns ingredientes.', 'Casa da Bruxa', 2),
-		   ('Ao longo do horizonte voce avista uma torre, com um elevador em sua base. Você caminha ate la e sobe. A vista do alto da torre
-			revela o grande Lago dos Nove, com uma enorme construcao no centro e oito torres iguais as que você acabou de subir
-			rodeando o lago. Olhando pelas suas costas, um pouco distante, uma enorme montanha aparenta guardar algum segredo.', 'Torre do Vigia', 3),
+		   ('Apos uma curta caminhada, você chega no rio. A agua e limpa e convidativa, parece ser uma boa ideia tomar um gole para saciar sua sede. Seguir o leito do rio pode ser uma boa ideia para encontrar uma cidade.',
+		    'Beira do rio', 2),
+		   ('Ao longo de um caminho sinuoso, voce avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um grande jardim, todo florido e meticulosamente organizado. Olhando depois do enorme animal, voce enxerga uma alta torre que parece ser rapidamente alcancada a pe', 'Casa da Bruxa', 2),
+		   ('Voce chega mais perto da torre e ve que ela tem um elevador de madeira em sua base. Voce caminha ate la e sobe. A vista do alto da torre revela o grande Lago dos Nove, com uma enorme construcao redonda no centro e uma ponte saindo dela. Oito torres iguais as que você acabou de subir circulam o lago. Você avista um pequeno barco a remo do lado oposto ao que você subiu que pode ser facilmente utilizado para alcançar a construcao no centro do lado. Olhando pelas suas costas, um pouco distante, uma enorme montanha a alguns quilometros da sua posicao aparenta guardar algum segredo.',
+		   	'Torre do Vigia', 3),
+		   ('Pegando o pequeno barco a remo na margem do lago, voce segue ate a enorme construcao do centro. A agua do lago se movimento de uma maneira incomum, como se algo estivesse Logo ao lado da doca, tem uma escadaria que leva ate o topo, onde tem uma ponte a sua direita e o predio central a esquerda', 'O Lago dos Nove', 3);
 		   ('A entrada da montanha, um pouco acima da sua localizacao atual, esta infestada de uma nevoa escura. E necessario escalar para chegar ate la.
 			Em sua base, a direita, você avista um bau.', 'A Montanha', 1), 
-		   ('Pegando um pequeno barco a remo na margem do lago, você segue ate a enorme construcao do centro. Logo ao lado da doca, tem uma escadaria que leva
-			ate o topo, onde tem uma ponte a sua direita e o predio central a esquerda', 'O Lago dos Nove', 3);
+		   
 
 insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_local, id_nivel, movimentos, mortes)
 	values ('dummy', 100, 100, 5, 10, 10, 1, 1, 0, 0);
@@ -109,15 +108,15 @@ insert into inventario (id_jogador, carga, capacidade, hacksilver)
 	values(1, 0, 100, 0);
 
 insert into npc (nome, tipo, descricao, pos, dialogo)
-	values ('Draugr', 1, 'Draugrs sao cadaveres reanimados que assombram os campos de batalha', 2, 'ROAR!'),
-		   ('Troll', 1, 'Trolls sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto.', 5, 'ROAR!'),
+	values ('Draugr', 1, 'sao cadaveres reanimados que assombram os campos de batalha', 2, 'ROAR!'),
+		   ('Troll', 1, 'sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto.', 5, 'ROAR!'),
 		   ('Lobo', 1, 'Na maioria das vezes aparecem em bandos e podem aparecer aliados com bruxas. Atacam com bastante rapidez, nao seja cercado.', 4, 'AUUUUUUU!'),
-		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!'),
-		   ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar'),
-		   ('Jormungandr', 2, 'Tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem'),
-		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'dialogo da personagem'),
-		   ('Mercador da Torre', 3, 'Um simples mercador com sua pequena tenda na base da torre.', 3, 'Saudacoes viajante, como posso te ajudar hoje?'),
-		   ('Mercador da montanha', 3, 'Um homem com uma tunica negra e carregando uma pequena trouxa em suas costas.', 5, 'Tocou, comprou.'),
+		   ('Ogro', 1, 'sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!'),
+		   ('Freya', 2, 'tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar'),
+		   ('Jormungandr', 2, 'tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem'),
+		   ('Atreus', 2, 'filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'dialogo da personagem'),
+		   ('Mercador da Torre', 3, 'um simples mercador com sua pequena tenda na base da torre.', 3, 'Saudacoes viajante, como posso te ajudar?'),
+		   ('Mercador da montanha', 3, 'um homem com uma tunica negra e carregando uma pequena trouxa em suas costas.', 5, 'Tocou, comprou.'),
 		   ('Sindri', 4, 'descricao do sindri', 3, 'dialogo do sindri'),
 		   ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok');
 
@@ -130,7 +129,7 @@ insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, 
 insert into personagem (nome, tipo, descricao, pos, dialogo, idnpc)
 	values ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar', 5),
 		   ('Jormungandr', 2, 'Tambem conhecido como a serpente do mundo. Eh o ultimo dos Jotnar e esta destinado a batalhar com Thor no Ragnarok.', 4, 'dialogo da personagem', 6),
-		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'Nao aguento mais ser chamado de garoto. Se voce matar o velho, eu te dou uma recompensa', 7);
+		   ('Atreus', 2, 'Filho do deus grego Kratos e sua segunda mulher, Faye. Ainda é jovem, mas apresenta brilhante maestria com um arco e flecha.', 3, 'Nao aguento mais ser chamado de garoto. Se voce matar o velho, eu te dou uma recompensa', 7);
 
 insert into mercador (nome, tipo, descricao, pos, dialogo, multiVenda, itens, idnpc)
 	values ('Mercador da cidade', 3, 'descricao do mercador', 3, 'dialogo do mercador', 2, 4, 8),
@@ -148,6 +147,12 @@ insert into bau (id_local, raridade, tamanho)
 	values (6, 2, 1),
 		   (5, 0, 3),
 		   (1, 1, 3);
+		  
+insert into instancia_inimigo (id_inimigo)
+	values (1),
+		   (2),
+		   (3),
+		   (4);
 		  
 -- backup
 
