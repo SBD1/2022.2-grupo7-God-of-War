@@ -299,7 +299,7 @@ main = async () => {
                     }
                 }
                 if (m == 4){
-                        console.log(`\n${result['nome']} possui os seguintes status:\nVida - ${result['vidaatual']}/${result['vidatotal']}\nExperiencia - ${result['experiencia']}\nDefesa - ${result['defesa']}\n`)
+                        console.log(`\n${result['nome']} possui os seguintes status:\nVida - ${result['vidaatual']}/${result['vidatotal']}\nExperiencia - ${result['experiencia']}\nDefesa - ${result['defesa']}\nDano - ${result['forca']}\n`)
                         //console.log(result);
 
                 }
