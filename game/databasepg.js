@@ -85,6 +85,17 @@ class Api {
 
     }
 
+    InimigoMorreu = async (id) => {
+        let response = [];
+        await this.db.query(`UPDATE inimigo set vidaatual = 0 where id = ${id}`)
+            .then((results) => {
+                response = results.rows
+            })
+        //console.log(response[0]);
+        return response[0];
+
+    }
+
     criarTabelas = async () => {
         let response = false;
         await this.db.query(table)
@@ -203,9 +214,16 @@ main = async () => {
                 jogador_forca = result['forca']
                 
                 //console.log("Locais que pode ir" + lig)
+                //console.log(npc);
                 if(npc != undefined){
-                    if(npc['tipo'] == 1){
+                    if(npc['tipo'] == 1 ){
+                       try{
                         inimigo = await api.getInimigo(result['id_local']);
+                    }
+                    catch (error) {
+                        console.log(error)
+                    }
+                        if(inimigo['vidaatual'] != 0) {
                         inimigo_vidaatual = inimigo['vidaatual']
                         inimigo_dano = inimigo['dano']
                         console.log(`Ao entrar, voce se depara com um ${inimigo['nome']},${inimigo['descricao']}. A criatura percebe sua presenca e ruge "${inimigo['dialogo']}".\n`)
@@ -217,6 +235,7 @@ main = async () => {
                                inimigo_vidaatual = inimigo_vidaatual -  dano 
                                if(inimigo_vidaatual <= 0) {
                                console.log("\nO Inimigo morreu!\n")
+                               await api.InimigoMorreu(inimigo['id'])
                                break; 
                             }
                                sofrido = Math.floor(Math.random() * inimigo_dano)
@@ -229,7 +248,11 @@ main = async () => {
                              }
                             }
                         }
-                }
+                    }}
+
+                    if(npc['tipo'] == 3){
+                        console.log("Voce encontrou um mercador");
+                    }
                 }
                 if(lig == 1) {
                     resp = askAndReturn("1 - Seguir em frente.\t2 - Status do personagem.\t3 - Sair.\n")
