@@ -89,7 +89,7 @@ insert into nivel (xpnecessario, forca, defesa)
 		   (90, 90, 90);
 
 insert into localtab (descricao, nome, proxsala)
-	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao esta coberto de neve e voce escuta um pequeno rio correndo por perto.', 
+	values ('Voce esta na Floresta Selvagem, escura e com um clima frio. O chao esta coberto de neve e voce escuta um pequeno rio correndo por perto. Voce olha para frente e ve um pequeno caminho de terra.', 
 		   'Floresta Selvagem', 1),
 		   ('Apos uma curta caminhada, você chega no rio. A agua e limpa e convidativa.', 'Beira do rio', 2),
 		   ('Ao longo de um caminho sinuoso, voce avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um pequeno jardim
@@ -102,8 +102,8 @@ insert into localtab (descricao, nome, proxsala)
 		   ('Pegando um pequeno barco a remo na margem do lago, você segue ate a enorme construcao do centro. Logo ao lado da doca, tem uma escadaria que leva
 			ate o topo, onde tem uma ponte a sua direita e o predio central a esquerda', 'O Lago dos Nove', 3);
 
-insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_local, id_nivel, movimentos, mortes)
-	values ('dummy', 100, 100, 5, 10, 10, 1, 1, 0, 0);
+insert into jogador (nome, vidaatual, vidatotal, experiencia, fa, id_local, id_nivel, movimentos, mortes)
+	values ('duorca, defesmmy', 100, 100, 5, 10, 10, 1, 1, 0, 0);
 
 insert into inventario (id_jogador, carga, capacidade, hacksilver)
 	values(1, 0, 100, 0);
