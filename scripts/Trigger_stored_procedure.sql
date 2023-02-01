@@ -266,11 +266,15 @@ CREATE OR REPLACE FUNCTION update_nivel() RETURNS TRIGGER AS $$
 DECLARE
     jogador_id INTEGER;
     novo_nivel INTEGER;
+    forca_novo_nivel INTEGER;
+    defesa_novo_nivel INTEGER;
 BEGIN
     jogador_id := NEW.id;
     SELECT id INTO novo_nivel FROM nivel WHERE xpNecessario <= NEW.experiencia ORDER BY xpNecessario DESC LIMIT 1;
+    SELECT forca INTO forca_novo_nivel from nivel where id = novo_nivel;
+    SELECT defesa INTO defesa_novo_nivel from nivel where id = novo_nivel;
     IF novo_nivel IS NOT NULL THEN
-        UPDATE jogador SET id_nivel = novo_nivel WHERE id = jogador_id;
+        UPDATE jogador SET id_nivel = novo_nivel, forca = forca_novo_nivel, defesa = defesa_novo_nivel WHERE id = jogador_id;
     END IF;
     RETURN NEW;
 END;
