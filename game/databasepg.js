@@ -63,6 +63,28 @@ class Api {
 
     }
 
+    getNPC = async (id) => {
+        let response = [];
+        await this.db.query(`SELECT * FROM npc WHERE pos ='${id}'`)
+            .then((results) => {
+                response = results.rows
+            })
+        //console.log(response[0]);
+        return response[0];
+
+    }
+
+    getInimigo = async (pos) => {
+        let response = [];
+        await this.db.query(`SELECT * FROM inimigo WHERE pos ='${pos}'`)
+            .then((results) => {
+                response = results.rows
+            })
+        //console.log(response[0]);
+        return response[0];
+
+    }
+
     criarTabelas = async () => {
         let response = false;
         await this.db.query(table)
@@ -133,9 +155,10 @@ main = async () => {
             if (temp == 1) {
                 while (aux == 1) {
                     nome = askAndReturn('Bem vindo ao God of War - O bom de guerra!\nQual o nome do personagem?\n')
+                    
                     try {
                         resultado = await api.getLogin(nome)
-
+                        console.log("Entrou")
                         jogador = new Jogador(resultado['id'], resultado['nome'], resultado['vidaAtual'], resultado['vidaTotal'], resultado['experiencia'], resultado['forca'], resultado['defesa'], resultado['id_local'], resultado['id_nivel'])
                         console.log("Bem-vindo " + jogador.nome)
                         break;
@@ -169,13 +192,68 @@ main = async () => {
                     //console.log(`\n '${nome}'`)
                     result = await api.getLogin(nome)
                     lugar = await api.getLugar(result['id_local'])
-                    
+                    npc = await api.getNPC(result['id_local'])
 
                 } catch (error) {
                     console.log(error)
                 }
-                m = askAndReturn(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'. \nPara onde voce gostaria de ir agora?\n 1-Norte \t  2-Leste \t 3-Status do Jogador \t \t 4-Menu Principal\n`)
-
+                console.log(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'.`)
+                lig = lugar['proxsala'];
+                jogador_vidaatual = result['vidaatual']
+                jogador_forca = result['forca']
+                
+                //console.log("Locais que pode ir" + lig)
+                if(npc != undefined){
+                    if(npc['tipo'] == 1){
+                        inimigo = await api.getInimigo(result['id_local']);
+                        inimigo_vidaatual = inimigo['vidaatual']
+                        inimigo_dano = inimigo['dano']
+                        console.log(`Ao entrar, voce se depara com um ${inimigo['nome']},${inimigo['descricao']}. A criatura percebe sua presenca e ruge "${inimigo['dialogo']}".\n`)
+                        while(inimigo_vidaatual > 0){
+                            act = askAndReturn(`O jogador esta com ${jogador_vidaatual} e o inimigo  esta com ${inimigo_vidaatual}\nO que voce deseja fazer:\n1 - Atacar\n2 - Usar pocao\n`)
+                            if(act == 1){
+                               dano = Math.floor(Math.random() * jogador_forca)
+                               console.log("Voce deu " + dano + " de dano")
+                               inimigo_vidaatual = inimigo_vidaatual -  dano 
+                               if(inimigo_vidaatual <= 0) {
+                               console.log("\nO Inimigo morreu!\n")
+                               break; 
+                            }
+                               sofrido = Math.floor(Math.random() * inimigo_dano)
+                               console.log("Voce recebeu " + sofrido + " de dano") 
+                               jogador_vidaatual = jogador_vidaatual - sofrido
+                               if(jogador_vidaatual <= 0) {
+                                console.log("\nVoce morreu!\nIndo para o menu principal!\n")
+                                main()
+                                break; 
+                             }
+                            }
+                        }
+                }
+                }
+                if(lig == 1) {
+                    resp = askAndReturn("1 - Seguir em frente.\t2 - Status do personagem.\t3 - Sair.\n")
+                    if(resp == 1) m = 1; 
+                    if(resp == 2) m = 4; 
+                    if(resp == 3) m = 5; 
+            }
+                if(lig == 2) { 
+                    resp = askAndReturn("1 - Seguir em frente.\t2 - Voltar.\t3 - Status do personagem.\t4 - Sair.\n")
+                    if(resp == 1) m = 1;
+                    if(resp == 2) m = 3;
+                    if(resp == 3) m = 4; 
+                    if(resp == 4) m = 5;  
+                }
+                if(lig == 3) {
+                    resp = askAndReturn("1 - Seguir a direita.\t2 - Seguir a esquerda.\t3 - Voltar\t4 - Status do personagem.\t5 - Sair.\n")
+                    if(resp == 1) m = 1;
+                    if(resp == 2) m = 2; 
+                    if(resp == 3) m = 3;
+                    if(resp == 4) m = 4; 
+                    if(resp == 5) m = 5;  
+                }
+                //m = askAndReturn(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'. \nPara onde voce gostaria de ir agora?\n 1-Norte \t  2-Leste \t 3-Status do Jogador \t \t 4-Menu Principal\n`)
+                //console.log("jogador" + jogador.id)
                 if (m == 1) {
                     try {
                         await api.atualizarPosicao(jogador.id, result['id_local'] + 1)
@@ -185,21 +263,25 @@ main = async () => {
                 }
                 if (m == 2) {
                     try {
-                        await api.atualizarPosicao(jogador.id, result['id_local'] - 1)
-
-                        //console.log("Você foi para a posição 2");
+                        await api.atualizarPosicao(jogador.id, result['id_local'] + 2)
                     } catch (error) {
                         console.log(error)
                     }
                 }
-                if (m == 3){
+                if (m == 3) {
+                    try {
+                        await api.atualizarPosicao(jogador.id, result['id_local'] - 1)
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+                if (m == 4){
                         console.log(`\n${result['nome']} possui os seguintes status:\nVida - ${result['vidaatual']}/${result['vidatotal']}\nExperiencia - ${result['experiencia']}\nDefesa - ${result['defesa']}\n`)
                         //console.log(result);
 
                 }
-                if (m == 4) {
-                    x = 1
-                    main(); 
+                if (m == 5) {
+                    process.exit();
                 }
             }
         }}
