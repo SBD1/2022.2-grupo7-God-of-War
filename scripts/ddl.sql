@@ -87,7 +87,7 @@ create table if not exists ataque(
 
 create table if not exists localTab(
 	id serial constraint pk_idLocal primary key,
-	descricao varchar(512) not null,
+	descricao varchar(1024) not null,
 	nome varchar(512) not null,
 	proxSala int default 1 not null
 );
