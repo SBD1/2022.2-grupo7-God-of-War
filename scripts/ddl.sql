@@ -152,6 +152,23 @@ create table if not exists inimigo(
 	constraint fk_npc foreign key (idNPC) references npc (idNPC)
 );
 
+create table if not exists instancia_inimigo(
+	id serial constraint pk_instancia_inimigo primary key,
+	nome varchar(512) not null,
+	tipo int not null,
+	descricao varchar(512) not null,
+	pos int not null,
+	dialogo varchar(512) not null,
+	dano int not null,
+	defesa int not null,
+	ataque int not null,
+	vida int not null,
+	vidaAtual int not null,
+	xpinimigo int not null,
+	idNPC int not null,
+	constraint fk_npc foreign key (idNPC) references npc (idNPC)
+);
+
 -- Personagem
 
 create table if not exists personagem(
@@ -230,12 +247,6 @@ create table if not exists bau(
 	constraint fk_id_item foreign key (id_item) references item (id),
 	constraint fk_id_local foreign key (id_local) references localTab(id)
 );
-
-create table if not exists instancia_inimigo (
-	id serial constraint pk_idInstanciaInimigo primary key,
-	id_inimigo int not null,
-	constraint fk_id_inimigo foreign key (id_inimigo) references inimigo(id)
-)
 
 -- backup
 
