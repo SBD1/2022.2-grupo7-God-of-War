@@ -96,9 +96,9 @@ insert into localtab (descricao, nome, proxsala)
 		   ('Ao longo de um caminho sinuoso, voce avista uma tartaruga gigante que aparenta estar adormecida. Ao lado dela tem um grande jardim, todo florido e meticulosamente organizado. Olhando depois do enorme animal, voce enxerga uma alta torre que parece ser rapidamente alcancada a pe', 'Casa da Bruxa', 2),
 		   ('Voce chega mais perto da torre e ve que ela tem um elevador de madeira em sua base. Voce caminha ate la e sobe. A vista do alto da torre revela o grande Lago dos Nove, com uma enorme construcao redonda no centro e uma ponte saindo dela. Oito torres iguais as que você acabou de subir circulam o lago. Você avista um pequeno barco a remo do lado oposto ao que você subiu que pode ser facilmente utilizado para alcançar a construcao no centro do lado. Olhando pelas suas costas, um pouco distante, uma enorme montanha a alguns quilometros da sua posicao aparenta guardar algum segredo.',
 		   	'Torre do Vigia', 3),
-		   ('Pegando o pequeno barco a remo na margem do lago, voce segue ate a enorme construcao do centro. A agua do lago se movimento de uma maneira incomum, como se algo estivesse Logo ao lado da doca, tem uma escadaria que leva ate o topo, onde tem uma ponte a sua direita e o predio central a esquerda', 'O Lago dos Nove', 3);
+		   ('Pegando o pequeno barco a remo na margem do lago, voce segue ate a enorme construcao do centro. A agua do lago se movimento de uma maneira incomum, como se algo estivesse Logo ao lado da doca, tem uma escadaria que leva ate o topo, onde tem uma ponte a sua direita e o predio central a esquerda', 'O Lago dos Nove', 3),
 		   ('A entrada da montanha, um pouco acima da sua localizacao atual, esta infestada de uma nevoa escura. E necessario escalar para chegar ate la.
-			Em sua base, a direita, você avista um bau.', 'A Montanha', 1), 
+			Em sua base, a direita, você avista um bau.', 'A Montanha', 1); 
 		   
 
 insert into jogador (nome, vidaatual, vidatotal, experiencia, forca, defesa, id_local, id_nivel, movimentos, mortes)
