@@ -125,11 +125,11 @@ insert into npc (nome, tipo, descricao, pos, dialogo)
 		   ('Brok', 4, 'descricao do brok', 6, 'dialogo do brok');
 
 insert into inimigo (nome, tipo, descricao, pos, dialogo, dano, defesa, ataque, vida, vidaatual, xpinimigo, idnpc)
-	values ('Draugr', 1, 'Draugrs sao cadaveres reanimados que assombram os campos de batalha', 2, 'ROAR!', 2, 1, 1, 5, 5, 10, 1),
-		   ('Troll', 1, 'Trolls sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto', 5, 'ROAR!', 8, 6, 1, 20, 20, 30, 2), 
-		   ('Lobo', 1, 'Na maioria das vezes aparecem em bandos e podem aparecer aliados com bruxas. Atacam com bastante rapidez, não seja cercado.', 4, 'AUUUUUUU!', 1, 1, 1, 3, 3, 5, 3),
-		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!', 6, 5, 15, 15, 15, 25, 4),
-		   ('Pesadelo', 1, 'sao pequenos seres voadores compostos por um grande olho e varios tentaculos que permitem sua locomocao.', 9, '', 1, 1, 1, 10, 10, 5, 5);
+	values ('Draugr', 1, 'Draugrs sao cadaveres reanimados que assombram os campos de batalha', 2, 'WRAWWWR!', 15, 15, 15, 20, 20, 20, 1),
+		   ('Troll', 1, 'Trolls sao enormes criaturas que carregam pilares como armas. Possuem um gigante par de presas nas laterais do rosto', 5, 'ROOOOAAAR!', 20, 20, 20, 40, 40, 30, 2), 
+		   ('Lobo', 1, 'Na maioria das vezes aparecem em bandos e podem aparecer aliados com bruxas. Atacam com bastante rapidez, não seja cercado.', 4, 'AUUUUUUU!', 12, 12, 12, 15, 15, 15, 3),
+		   ('Ogro', 1, 'Ogros sao seres grandes e burros, mas possuem forca suficiente para bater de frente com um Troll. Nao os julgue pela sua inteligencia', 6, 'GRRRRAAAA!', 30, 30, 30, 50, 50, 30, 4),
+		   ('Pesadelo', 1, 'sao pequenos seres voadores compostos por um grande olho e varios tentaculos que permitem sua locomocao.', 9, '', 10, 10, 10, 10, 10, 5, 5);
 
 insert into personagem (nome, tipo, descricao, pos, dialogo, idnpc)
 	values ('Freya', 2, 'Tambem conhecida como a bruxa da floresta, e uma deusa Vanir e ex-esposa do proprio Odin.', 3, 'Voce parece perdido, viajante. Te ajudo se me ajudar', 5),

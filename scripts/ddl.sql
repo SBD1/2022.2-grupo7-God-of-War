@@ -149,7 +149,7 @@ create table if not exists inimigo(
 	vidaAtual int not null,
 	xpinimigo int not null,
 	idNPC int not null,
-	tempo int default 0 not null,
+	tempo TIMESTAMP,
 	constraint fk_npc foreign key (idNPC) references npc (idNPC)
 );
 
@@ -167,7 +167,7 @@ create table if not exists instancia_inimigo(
 	vidaAtual int not null,
 	xpinimigo int not null,
 	idNPC int not null,
-	tempo int default 0 not null,
+	tempo TIMESTAMP,
 	constraint fk_npc foreign key (idNPC) references npc (idNPC)
 );
 
