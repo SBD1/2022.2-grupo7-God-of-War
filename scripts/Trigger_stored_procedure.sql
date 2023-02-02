@@ -285,6 +285,29 @@ AFTER INSERT OR UPDATE OF experiencia ON jogador
 FOR EACH ROW
 EXECUTE FUNCTION update_nivel();
 
+--trigger para que todos os inimigos fiquem com vida máxima a cada 10 minutos
+CREATE OR REPLACE FUNCTION atualiza_vida_inimigo()
+RETURNS TRIGGER AS $atualiza_vida_inimigo$
+DECLARE
+  tempoAtual TIMESTAMP;
+BEGIN
+  SELECT NOW() INTO tempoAtual;
+ 
+  IF (extract(minute from age(tempoAtual, (SELECT inimigo.tempo FROM inimigo WHERE id = NEW.id))) >= 5) THEN
+    UPDATE inimigo
+    SET vidaAtual = vida,
+    tempo = tempoAtual
+    WHERE id = NEW.id;
+  END IF;
+  
+  RETURN NEW;
+END;
+$atualiza_vida_inimigo$ LANGUAGE plpgsql;
+
+CREATE TRIGGER atualiza_vida_inimigo_trigger
+AFTER UPDATE ON jogador
+FOR EACH row
+EXECUTE FUNCTION atualiza_vida_inimigo();
 
 
 
