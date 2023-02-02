@@ -4,6 +4,7 @@ const readline = require('readline-sync');
 
 var table = fs.readFileSync('scripts/ddl.sql').toString();
 var data = fs.readFileSync('scripts/dml.sql').toString();
+var trigger = fs.readFileSync('scripts/Trigger_stored_procedure.sql').toString();
 
 class Jogador {
     constructor(id, nome, vidaAtual, vidaTotal, experiencia, forca, defesa, id_local, id_nivel) {
@@ -109,6 +110,15 @@ class Api {
     carregarTabelas = async () => {
         let response = false;
         await this.db.query(data)
+            .then((results) => {
+                response = true
+            })
+        return response;
+    };
+
+    criarTriggers =  async () => {
+        let response = false;
+        await this.db.query(trigger)
             .then((results) => {
                 response = true
             })
@@ -326,6 +336,13 @@ main = async () => {
             try {
                 let res = await api.carregarTabelas()
                 if (res) { console.log("As tabelas foram carregadas com sucesso!!! XD") }
+            }
+            catch (error) {
+                console.log(error)
+            }
+            try{
+                let res = await api.criarTriggers()
+                if (res) { console.log("Triggers criados com sucesso! :o")}
             }
             catch (error) {
                 console.log(error)
