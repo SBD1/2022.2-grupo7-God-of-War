@@ -293,11 +293,11 @@ DECLARE
 BEGIN
   SELECT NOW() INTO tempoAtual;
  
-  IF (extract(minute from age(tempoAtual, (SELECT inimigo.tempo FROM inimigo WHERE id = NEW.id))) >= 5) THEN
+  IF (extract(minute from age(tempoAtual, (SELECT inimigo.tempo FROM inimigo WHERE inimigo.pos = NEW.id_local))) >= 5) THEN
     UPDATE inimigo
     SET vidaAtual = vida,
     tempo = tempoAtual
-    WHERE id = NEW.id;
+    WHERE inimigo.pos = NEW.id_local;
   END IF;
   
   RETURN NEW;
