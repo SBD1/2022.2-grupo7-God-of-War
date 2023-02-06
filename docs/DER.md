@@ -23,7 +23,7 @@
 Imagem 1: DER
 </div>
 
-<img src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V7.png?raw=true">
+<img src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V8.png?raw=true">
 
 <div style="text-align: center">
 Fonte: Autoria própria
