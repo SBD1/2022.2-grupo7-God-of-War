@@ -97,6 +97,16 @@ class Api {
 
     }
 
+    updateVidaJogador = async (vida, id) => {
+        let response = []; 
+        await this.db.query(`UPDATE jogador set vidaatual = ${vida} where id = ${id}`)
+            .then((results) => {
+                response = results.rows
+            })
+        return response[0];
+
+    }
+
     criarTabelas = async () => {
         let response = false;
         await this.db.query(table)
@@ -115,6 +125,17 @@ class Api {
             })
         return response;
     };
+    
+    countMorte = async(x) => {
+
+        if(x == 3){
+            console.log("\nVocê realmente é um inciiante em jogos né?\n");
+        }
+        if(x == 6){
+            console.log("\nMelhor procurar outro hobbie!\n");
+        }
+        if(x == 9) console.log("\nVoce ta parecendo o vasco\n");
+    }
 
     criarTriggers =  async () => {
         let response = false;
@@ -218,6 +239,7 @@ main = async () => {
                 } catch (error) {
                     console.log(error)
                 }
+                if(npc == undefined){console.log("Undefineeeeeeeeed")}
                 console.log(`Voce esta em ${lugar['nome']}, \n'${lugar['descricao']}'.`)
                 lig = lugar['proxsala'];
                 jogador_vidaatual = result['vidaatual']
@@ -225,6 +247,7 @@ main = async () => {
                 
                 //console.log("Locais que pode ir" + lig)
                 //console.log(npc);
+                
                 if(npc != undefined){
                     if(npc['tipo'] == 1 ){
                        try{
@@ -246,15 +269,18 @@ main = async () => {
                                if(inimigo_vidaatual <= 0) {
                                console.log("\nO Inimigo morreu!\n")
                                await api.InimigoMorreu(inimigo['id'])
+                               api.updateVidaJogador(jogador_vidaatual, result['id'])
                                break; 
                             }
                                sofrido = Math.floor(Math.random() * inimigo_dano)
                                console.log("Voce recebeu " + sofrido + " de dano") 
                                jogador_vidaatual = jogador_vidaatual - sofrido
                                if(jogador_vidaatual <= 0) {
-                                console.log("\nVoce morreu!\nIndo para o menu principal!\n")
-                                main()
-                                break; 
+                                console.log("\nVoce morreu!\n Mais sorte na proxima vez!\n")
+                                api.updateVidaJogador(0, result['id'])
+                                api.countMorte(result['mortes'] + 1)
+                                process.exit()
+                                
                              }
                             }
                         }
@@ -309,6 +335,7 @@ main = async () => {
                     }
                 }
                 if (m == 4){
+                        result = await api.getLogin(nome)
                         console.log(`\n${result['nome']} possui os seguintes status:\nVida - ${result['vidaatual']}/${result['vidatotal']}\nExperiencia - ${result['experiencia']}\nDefesa - ${result['defesa']}\nDano - ${result['forca']}\n`)
                         //console.log(result);
 
