@@ -7,8 +7,9 @@
 | 1.0    | 26/11 | Mateus Caltabiano | Confecção da primeira versão do Diagrama Entidade-Relacionamento |
 | 1.1    | 27/11 | Mateus Caltabiano | Adição da introdução                                             |
 | 1.2    | 27/11 | Mateus Caltabiano | Adição dos atributos no diagrama e reorganização do mesmo        |
-| 1.3    | 12/01 | Mateus Caltabiano | Reorganização das hierarquias |
-| 1.4    | 13/01 | Mateus Caltabiano | Adição de instâncias item e inimigo no DER |
+| 1.3    | 12/01 | Mateus Caltabiano | Reorganização das hierarquias                                    |
+| 1.4    | 13/01 | Mateus Caltabiano | Adição de instâncias item e inimigo no DER                       |
+| 1.5    | 06/02 | Mateus Caltabiano | Confecção da versão final do DER                                 |
 
 ## 2. Introdução
 
@@ -22,7 +23,7 @@
 Imagem 1: DER
 </div>
 
-<img src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V5.png?raw=true">
+<img src="https://github.com/SBD1/2022.2-grupo-God-of-War/blob/main/img/DER_V7.png?raw=true">
 
 <div style="text-align: center">
 Fonte: Autoria própria
