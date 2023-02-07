@@ -20,7 +20,7 @@ por isso é um modelo não atrelado a nenhum tipo de sistema de gerenciamento de
 Imagem 1: MREL
 </div>
 
-<img src="https://raw.githubusercontent.com/SBD1/2022.2-grupo-God-of-War/main/img/MREL2.1.png">
+<img src="https://raw.githubusercontent.com/SBD1/2022.2-grupo-God-of-War/main/img/MREL3.1.png">
 
 <div style="text-align: center">
 Fonte: Autoria própria
