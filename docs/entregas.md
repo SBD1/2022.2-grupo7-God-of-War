@@ -8,7 +8,7 @@
 | 2.0    | 16/01/2023 | Mateus Caltabiano | Adição do vídeo da segunda entrega do semestre |
 | 2.1    | 16/01/2023 | Mateus Caltabiano | Substituindo o vídeo da primeira entrega no youtube pelo google drive |
 | 3.0    | 01/02/2023 | Mateus Caltabiano | Adição do vídeo da terceira entrega do semestre |
-| 4.0    | 06/02/2023 | Mateus Caltabiano | Adiçao da quarta e última entrega do semestre |
+| 4.0    | 06/02/2023 | Mateus Caltabiano | Adição da quarta e última entrega do semestre |
 
 ## 2. Introdução
 
