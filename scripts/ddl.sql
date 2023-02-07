@@ -200,7 +200,7 @@ create table if not exists ferreiro(
 
 create table if not exists inventario(
 	id_jogador int not null, 
-	carga int not null,
+	carga int DEFAULT 0 not null,
 	capacidade int default 100 not null,
 	hacksilver int default 0 not null,
 	id_item int, 

@@ -223,11 +223,11 @@ FOR EACH ROW
 EXECUTE FUNCTION diminui_carga();
 
 --Trigger para criar inventario assim que o jogador é criado
-CREATE OR REPLACE FUNCTION inserir_inventario_padrao()
+/*CREATE OR REPLACE FUNCTION inserir_inventario_padrao()
 RETURNS TRIGGER AS $$
 BEGIN
   INSERT INTO inventario(id_jogador, carga, capacidade, hacksilver)
-  VALUES (NEW.id, 0, 100, 0);
+  VALUES (NEW.id);
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -236,7 +236,8 @@ CREATE TRIGGER inserir_inventario_padrao_trigger
 AFTER INSERT ON jogador
 FOR EACH ROW
 EXECUTE FUNCTION inserir_inventario_padrao();
-
+Trigger funcionando no DBeaver mas dando erro na hora de criar um personagem no jogo
+*/
 --trigger para caso o jogador fique com mais carga que a capacidade do inventario ele tenha que selecionar o que quer descartar
 CREATE OR REPLACE FUNCTION verifica_carga()
 RETURNS TRIGGER AS $verifica_carga$
